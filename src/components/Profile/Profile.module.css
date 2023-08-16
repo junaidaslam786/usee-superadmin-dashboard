@@ -1,0 +1,414 @@
+.whole {
+    background-color: #FAFBFC;
+}
+
+.profileCreation {
+    width: 162vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.profileCreationHeading h3 {
+    margin-left: 30px;
+    letter-spacing: 0.5px;
+}
+
+.profileCreationButtons button {
+    font-family: 'roboto', sans-serif;
+    padding: 15px 30px;
+    color: #00C800;
+    background: #FAFBFC;
+    border: 2px solid #00C800;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.profileCreationButtons button:hover{
+    color: white;
+    background-color: #00C800;
+    cursor: pointer;
+}
+
+.profileCreationButtons .one {
+    margin-right: 60px;
+}
+
+.ProfileInfo {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+
+.profileLinks {
+    background-color: white;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 180px;
+    height: 200px;
+    border: 1px solid black;
+    border-radius: 3px;
+    box-shadow: 1px 1px 4px black;
+}
+
+.profileLinks div {
+    font-family: 'roboto', sans-serif;
+    font-size: 12px;
+    color: #737791;
+    padding-left: 20px;
+    height: 40px;
+    border-bottom: 1px solid black;
+    display: flex;
+    align-items: center;
+}
+
+.profileLinks div:hover {
+    border-left: 3px solid #00C800;
+    color: #00C800;
+    cursor: pointer;
+}
+
+.UserRegistration {
+    display: flex;
+    flex-direction: column;
+    width: 116vh;
+    margin: 0 60px 0 30px;
+    background-color: #FAFBFC;
+}
+
+.accountDetails {
+    background-color: white;
+    border: 1px solid;
+    box-shadow: 1px 1px 6px black;
+    border-radius: 3px;
+    padding: 30px;
+}
+
+.userFiles {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.userFilesHeading {
+    display: flex;
+    flex-direction: column;
+    font-family: 'roboto', sans-serif;
+}
+
+.userFilesHeading h3 {
+    letter-spacing: 1px;
+}
+
+.userFilesHeading p {
+    color: #737791;
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+.userFilesImg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 60px;
+}
+
+.userFilesImg img {
+    border-radius: 50px;
+}
+
+.userFilesImg a {
+    color: #00C800;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.userForm {
+    margin-top: 40px;
+}
+
+.userProfile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+    font-family: 'roboto' sans-serif;
+    font-size: 12px;
+    color: #171B2A;
+}
+
+.userDiv input {
+    border: 2px solid #00C800;
+    width: 200px;
+    margin-top: 10px;
+    border-radius: 3px;
+    padding: 10px;
+    background-color: #FAFBFC;
+}
+
+.userMortgage {
+    font-family: 'roboto' sans-serif;
+    font-size: 12px;
+    color: #171B2A;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.companyLogo {
+    margin-left: 15px;
+}
+
+.fileUpload {
+    border: 2px solid #00C800;
+    color: #00C800;
+    width: 220px;
+    margin-top: 10px;
+    border-radius: 3px;
+    background-color: #FAFBFC;
+    height: 36px;
+}
+
+.userButtons {
+    display: flex;
+    flex-direction: row;
+    margin-top: 35px;
+}
+
+.saveButton {
+    width: 120px;
+    height: 40px;
+    background-color: #FAFBFC;
+    color: #00C800;
+    border: 2px solid #00C800;
+    border-radius: 3px;
+}
+
+.saveButton:hover{
+    background-color: #00C800;
+    color: white;
+    cursor: pointer;
+}
+
+.discardButton {
+    width: 120px;
+    height: 40px;
+    background-color: #FAFBFC;
+    color: red;
+    border: 2px solid red;
+    border-radius: 3px;
+    margin-left: 20px;
+}
+
+.discardButton:hover {
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+
+.timeZone {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    background-color: white;
+    border: 1px solid;
+    box-shadow: 1px 1px 6px black;
+    border-radius: 3px;
+    padding: 30px;
+}
+
+.timeZoneHeading h3 {
+    letter-spacing: 1px;
+}
+
+.timeZoneHeading p {
+    color: #737791;
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+.timeZoneLabel select {
+    width: 100%;
+    margin-top: 30px;
+    padding: 10px 20px;
+    background-color: #FAFBFC;
+    border: 2px solid #00C800;
+    border-radius: 3px;
+}
+
+.timeZoneButton {
+    width: 120px;
+    height: 40px;
+    color: #00C800;
+    border: 2px solid #00C800;
+    margin-top: 30px;
+    background-color: #FAFBFC;
+    border-radius: 3px;
+}
+
+.timeZoneButton:hover {
+    background-color: #00C800;
+    color: white;
+    cursor: pointer;
+}
+
+.userPass {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    background-color: white;
+    border: 1px solid;
+    box-shadow: 1px 1px 6px black;
+    border-radius: 3px;
+    padding: 30px;
+}
+
+.userPassHeading h3{
+    letter-spacing: 1px;
+}
+
+.userPassHeading p {
+    color: #737791;
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+.userPassInputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.userPassAbout {
+    display: flex;
+    flex-direction: row;
+    font-family: 'roboto' sans-serif;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.userPassAbout p{
+    color: #737791;
+    font-size: 11px;
+    margin-left: 5px;
+}
+
+.userPassInputs input {
+    border: 2px solid #00C800;
+    width: 97%;
+    margin-top: 10px;
+    border-radius: 3px;
+    padding: 10px;
+    background-color: #FAFBFC;
+}
+
+.userPassButton {
+    width: 150px;
+    height: 40px;
+    color: #00C800;
+    border: 2px solid #00C800;
+    margin-top: 30px;
+    background-color: #FAFBFC;
+    border-radius: 3px;
+}
+
+.userPassButton:hover {
+    background-color: #00C800;
+    color: white;
+    cursor: pointer;
+}
+
+.userBackgroundImage {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    background-color: white;
+    border: 1px solid;
+    box-shadow: 1px 1px 6px black;
+    border-radius: 3px;
+    padding: 30px;
+}
+
+.userBackgroundImageHeading {
+    display: flex;
+    flex-direction: column;
+}
+
+.userBackgroundImageHeading h3{
+    letter-spacing: 1px;
+}
+
+.userBackgroundImageHeading p {
+    color: #737791;
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+.userBackgroundImageFiles {
+    width: 100%;
+    border: 2px solid #00C800;
+    margin-top: 20px;
+    border-radius: 3px;
+    padding: 20px 0px;
+    background-color: #FAFBFC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.userBackgroundImageFiles p{
+    font-size: 15px;
+    color: #737791;
+}
+
+.userBackgroundImageFiles p a {
+    font-size: 15px;
+    color: #00C800;
+}
+
+.userEmbeddedCode {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    background-color: white;
+    border: 1px solid;
+    box-shadow: 1px 1px 6px black;
+    border-radius: 3px;
+    padding: 30px;
+    margin-bottom: 150px;
+}
+
+.userEmbeddedCodeHeading {
+    display: flex; 
+    flex-direction: column;
+}
+
+.userEmbeddedCodeHeading h3 {
+    letter-spacing: 1px;
+}
+
+.userEmbeddedCodeHeading p {
+    color: #737791;
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+.userEmbeddedCodeButton {
+    width: 150px;
+    height: 40px;
+    color: #00C800;
+    border: 2px solid #00C800;
+    margin-top: 30px;
+    background-color: #FAFBFC;
+    border-radius: 3px;
+}
+
+.userEmbeddedCodeButton:hover {
+    background-color: #00C800;
+    color: white;
+    cursor: pointer;
+}

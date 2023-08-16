@@ -1,17 +1,22 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
-import { setUser, logout } from '../features/userSlice';
+import { setUser } from '../features/userSlice';
 import customFetchBase from './customFetchBase';
 
 const userApi = createApi({
   reducerPath: 'userApi',
-  baseQuery: customFetchBase(logout),
+  baseQuery: customFetchBase,
   tagTypes: ['User'],
   endpoints: (builder) => ({
     getMe: builder.query({
-      query() {
+      query: () => {
+        const token = localStorage.getItem('token');
+        console.log(token)
         return {
-          url: 'user/profile',
+          url: 'superadmin/user/superadmin-details',
           credentials: 'include',
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
         };
       },
       transformResponse: (result) => result.data.user,

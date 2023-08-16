@@ -22,17 +22,17 @@ const Login = () => {
       navigate("/dashboard");
       // Handle success, e.g., navigate to a different page or show a success message
     } catch (err) {
+      console.log("Login Error", err.message)
       // Handle the error (err.message will contain error message)
     }
   };
   return (
-    <div className="Login">
-      <h1 className={styles.Welcome}>Welcome Back</h1>
-      <h2 className={styles.loginText}>Login</h2>
+    <div className={styles.Login}>
+      <p className={styles.Welcome}>Welcome Back</p>
+      <p className={styles.loginText}>Login</p>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.inputs}>
-          <p>Email*</p>
-          <p>Email*</p>
+          <p>Email</p>
           <input
             {...register("email", { required: "Email is required" })}
             type="text"
@@ -57,18 +57,11 @@ const Login = () => {
       <div className={styles.Remember}>
         <div className={styles.toggle}>
           <span className="material-symbols-outlined">toggle_off</span>
-          <p>Remember Me</p>
+          <p>Remember me</p>
         </div>
         <div className={styles.forgot}>
           <a href="#">Forgot Password?</a>
         </div>
-      </div>
-
-      <div className={styles.newUser}>
-        <p>Don't have any account yet?</p>
-        <a href="#" className={styles.signup}>
-          Sign Up
-        </a>
       </div>
     </div>
   );

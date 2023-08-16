@@ -9,7 +9,7 @@ const LoginPage = () => {
       <div>
         <img src={logo} alt="mainImage" className={styles.mainImage}/>
       </div>
-      <Login />
+      <Login className={styles.logIn} />
     </div>
   );
 };

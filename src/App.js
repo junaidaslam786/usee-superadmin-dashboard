@@ -1,13 +1,15 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import LoginPage from './pages/login/LoginPage'
-import Dashboard from './components/dashboard/Dashboard';
+import DashboardPage from './pages/dashboard/dashboardpage';
+import ProfilePage from './pages/profile/profilePage';
 
 function App() {
   return (
     <Routes>
       <Route path='/' element={<LoginPage />} />
-      <Route path='/dashboard' element={<Dashboard />} />
+      <Route path='/dashboard' element={<DashboardPage />} />
+      <Route path='/profile' element={<ProfilePage />} />
     </Routes>
   );
 }

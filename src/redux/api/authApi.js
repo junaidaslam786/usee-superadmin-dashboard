@@ -1,11 +1,10 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 import customFetchBase from "./customFetchBase";
 import { userApi } from "./userApi";
-import { logout } from "../features/userSlice";
 
 const authApi = createApi({
   reducerPath: "authApi",
-  baseQuery: customFetchBase(logout),
+  baseQuery: customFetchBase,
   endpoints: (builder) => ({
     registerUser: builder.mutation({
       query(data) {
@@ -29,7 +28,9 @@ const authApi = createApi({
         try {
           await queryFulfilled;
           await dispatch(userApi.endpoints.getMe.initiate(null));
-        } catch (error) {}
+        } catch (error) {
+          console.error("Error after login:", error);
+        }
       },
     }),
     logoutUser: builder.mutation({

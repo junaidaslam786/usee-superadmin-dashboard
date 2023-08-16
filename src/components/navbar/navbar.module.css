@@ -1,0 +1,114 @@
+.header {
+    height: 12vh;
+    width: 81vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashlogo {
+    font-family: Helvetica;
+    margin-left: 3vw;
+    color: #171B2A;
+    font-size: 4vh;
+    font-weight: 600;
+}
+
+.inputfield {
+    position: relative;
+}
+
+.inputfield span {
+    position: absolute;
+    color: #00C800;
+    top: 1vh;
+    left: 1vw;
+    transform: rotateY(-50%);
+    font-size: 3vh;
+}
+
+.inputfield input {
+    width: 25vw;
+    height: 5vh;
+    background-color: #FAFBFC;
+    border: 0px solid;
+    border-radius: 5px;
+    text-align: center;
+    font-family: 'roboto', sans-serif;
+    font-size: 1.5vh;
+}
+
+.notify {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 1vw;
+}
+
+.notification {
+    padding: 1vh 0.7vw;
+    background-color: #FAFBFC;
+    border: 0px solid;
+    color: #00C800;
+    border-radius: 5px;
+    margin-right: 3vw;
+}
+
+.notification span {
+    font-size: 2vh;
+}
+
+.user {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.userImage {
+    border-radius: 5px;
+}
+
+.userInfo {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1vh;
+    font-family: 'roboto', sans-serif;
+}
+
+.userName {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 2vh;
+}
+
+.userName p{
+    font-size: 2vh;
+    font-weight: 600;
+}
+
+.userName span {
+    font-size: 1vh;
+    font-weight: bold;
+}
+
+.userInfo p{
+    margin-top: -0.5vh;
+    font-size: 1vh;
+}
+
+.home {
+    height: 5vh;
+    background-color: #171B2A;
+    width: 81vw;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.home p{
+    font-family: 'roboto', sans-serif;
+    font-size: 2vh;
+    margin-left: 2vw;
+}

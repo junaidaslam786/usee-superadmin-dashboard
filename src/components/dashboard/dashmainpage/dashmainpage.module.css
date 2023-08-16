@@ -1,0 +1,91 @@
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+.grid {
+    height: 83vh;
+    width: 81vw;
+}
+
+.card {
+    margin: 4vh 0 0 1vw;
+    width: 13vw;
+    height: 13vh;
+    background-color: white;
+    border: 0px solid;
+    border-radius: 10px;
+    box-shadow: 1px 2px 5px #171B2A;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cardAbout {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.quantity {
+    color: #00C800;
+    font-size: 3vh;
+    font-family: 'roboto', sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-top: -1vh;
+}
+
+.cardField {
+    font-family: 'roboto', sans-serif;
+    font-size: 2vh;
+    margin-top: -5vh;
+}
+
+.cardIcon span{
+    color: #00C800;
+    font-size: 5vh;
+}
+
+.cardInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.cardButton {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.btn{
+    width: 13vw;
+    border: 1px solid #00C800;
+    background-color: #00C800;
+    border-radius: 0 0 10px 10px;
+    height: 3vh;
+    font-family: 'roboto', sans-serif;
+    color: white;
+}
+
+.btn p{
+    font-size: 1.5vh;
+    margin: 2px 0;
+    margin-left: 30%;
+    display: flex;
+    align-items: center;
+}
+
+.cardButton span {
+    position: absolute;
+    top: 25%;
+    right: 4vw;
+    transform: rotateY(-50%);
+    background-color: white;
+    color: #00C800;
+    border: #00C800;
+    border-radius: 50px;
+    font-size: 1.5vh;
+}
