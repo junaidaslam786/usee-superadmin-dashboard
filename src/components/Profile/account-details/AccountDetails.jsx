@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./AccountDetails.module.css";
+import user from '../../../assets/UserImage.png'
 
 function AccountDetails() {
   return (
@@ -14,7 +15,7 @@ function AccountDetails() {
         </div>
         <div className={styles.userFilesImg}>
           <img
-            src="Images/Rectangle 1393.png"
+            src= {user}
             alt="profilePicture"
             width="100px"
             height="100px"
@@ -32,7 +33,7 @@ function AccountDetails() {
             <p>Last Name</p>
             <input type="text" placeholder="Doe" />
           </div>
-          <div className={styles.userDiv}>
+          <div className={`${styles.userDiv} ${styles.last}`}>
             <p>Company Position</p>
             <input type="text" placeholder="John" />
           </div>
@@ -46,7 +47,7 @@ function AccountDetails() {
             <p>Mobile Number</p>
             <input type="text" placeholder="+923123456789" />
           </div>
-          <div className={styles.userDiv}>
+          <div className={`${styles.userDiv} ${styles.last}`}>
             <p>Company Name</p>
             <input type="text" placeholder="Eagle's Eye" />
           </div>
@@ -60,7 +61,7 @@ function AccountDetails() {
             <p>Zip Code</p>
             <input type="text" />
           </div>
-          <div className={styles.userDiv}>
+          <div className={`${styles.userDiv} ${styles.last}`}>
             <p>City</p>
             <input type="text" />
           </div>

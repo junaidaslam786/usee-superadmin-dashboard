@@ -1,39 +1,41 @@
 .timeZone {
     display: flex;
     flex-direction: column;
-    margin-top: 40px;
+    margin-top: 4vh;
     background-color: white;
     border: 1px solid;
     box-shadow: 1px 1px 6px black;
     border-radius: 3px;
-    padding: 30px;
+    padding: 3vh;
 }
 
 .timeZoneHeading h3 {
     letter-spacing: 1px;
+    margin-top: 0;
+    font-size: 3vh;
 }
 
 .timeZoneHeading p {
     color: #737791;
-    font-size: 11px;
-    margin-top: 5px;
+    font-size: 1.5vh;
+    margin-top: -2vh;
 }
 
 .timeZoneLabel select {
     width: 100%;
-    margin-top: 30px;
-    padding: 10px 20px;
+    margin-top: 3vh;
+    padding: 2vh 2vw;
     background-color: #FAFBFC;
-    border: 2px solid #00C800;
+    border: 0.4vh solid #00C800;
     border-radius: 3px;
 }
 
 .timeZoneButton {
-    width: 120px;
-    height: 40px;
+    width: 10vw;
+    height: 6vh;
     color: #00C800;
-    border: 2px solid #00C800;
-    margin-top: 30px;
+    border: 0.4vh solid #00C800;
+    margin-top: 3vh;
     background-color: #FAFBFC;
     border-radius: 3px;
 }

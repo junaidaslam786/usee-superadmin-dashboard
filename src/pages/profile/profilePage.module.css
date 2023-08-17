@@ -1,17 +1,14 @@
-.whole {
+.profileCreation {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 4vh;
     background-color: #FAFBFC;
 }
 
-.profileCreation {
-    width: 162vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 40px;
-}
-
 .profileCreationHeading h3 {
-    margin-left: 30px;
+    margin-left: 2vw;
     letter-spacing: 0.5px;
 }
 
@@ -47,7 +44,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    width: 180px;
+    width: 15vw;
     height: 200px;
     border: 1px solid black;
     border-radius: 3px;

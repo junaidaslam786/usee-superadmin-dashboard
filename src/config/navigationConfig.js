@@ -1,12 +1,25 @@
 /* eslint-disable no-sparse-arrays */
 import React from "react"
 import * as Icon from "react-feather"
+import {ReactComponent as DashIcon} from '../assets/Icon.svg'
+import {ReactComponent as ProfileIcon} from '../assets/Profile.svg'
+import {ReactComponent as Users} from '../assets/users.svg'
+import {ReactComponent as News} from '../assets/news.svg'
+import {ReactComponent as Traders} from "../assets/traders.svg"
+import {ReactComponent as Subs} from '../assets/subs.svg'
+import {ReactComponent as Property} from "../assets/Property.svg"
+import {ReactComponent as Appointments} from '../assets/Appointments.svg'
+import {ReactComponent as Blog} from '..//assets/Blog.svg'
+import {ReactComponent as Community} from '../assets/Community.svg'
+import styles from '../config/navigationConfig.module.css'
+
+
 const navigationConfig = [
   {
     id: "dashboard",
     title: "Dashboard",
     // type: "collapse",
-    icon: <Icon.Monitor size={20} />,
+    icon: <DashIcon className={styles.icon} />,
     badge: "warning",
     // badgeText: "2",
     navLink: "/dashboard"
@@ -15,7 +28,7 @@ const navigationConfig = [
     id: "profile",
     title: "Profile",
     // type: "collapse",
-    icon: <Icon.Monitor size={20} />,
+    icon: <ProfileIcon className={styles.icon} />,
     badge: "warning",
     // badgeText: "2",
     navLink: "/profile"
@@ -24,7 +37,7 @@ const navigationConfig = [
     id: "property",
     title: "Property",
     type: "collapse",
-    icon: <Icon.Home size={20} />,
+    icon: <Property className={styles.icon} />,
     children: [
       {
         id: "propertyList2",
@@ -65,7 +78,7 @@ const navigationConfig = [
     id: "appointments",
     title: "Appointments",
     type: "collapse",
-    icon: <Icon.Calendar size={20} />,
+    icon: <Appointments className={styles.icon} />,
     children: [
       {
         id: "all-appointments",
@@ -88,7 +101,7 @@ const navigationConfig = [
     id: "news-management",
     title: "News",
     type: "collapse",
-    icon: <Icon.Feather size={20} />,
+    icon: <News className={styles.icon} />,
     children: [
       {
         id: "add-news",
@@ -110,7 +123,7 @@ const navigationConfig = [
     id: "blog-management",
     title: "Blogs",
     type: "collapse",
-    icon: <Icon.Feather size={20} />,
+    icon: <Blog className={styles.icon} />,
     children: [
       {
         id: "add-blog",
@@ -132,7 +145,7 @@ const navigationConfig = [
     id: "community-qa-management",
     title: "Community",
     type: "collapse",
-    icon: <Icon.Feather size={20} />,
+    icon: <Community className={styles.icon} />,
     children: [
       {
         id: "add-community",
@@ -155,7 +168,7 @@ const navigationConfig = [
     id: "customers",
     title: "Customers",
     type: "collapse",
-    icon: <Icon.Users size={20} />,
+    icon: <Users className={styles.icon} />,
     children: [
       {
         id: "add-customer",
@@ -177,7 +190,7 @@ const navigationConfig = [
     id: "traders",
     title: "Traders",
     type: "collapse",
-    icon: <Icon.UserCheck size={20} />,
+    icon: <Traders className={styles.icon} />,
     children: [
       {
         id: "add-trader",
@@ -206,7 +219,7 @@ const navigationConfig = [
     id: "userManagement",
     title: "User Management",
     type: "collapse",
-    icon: <Icon.User size={20} />,
+    icon: <Subs className={styles.icon} />,
     children: [
       {
         id: "createUser",

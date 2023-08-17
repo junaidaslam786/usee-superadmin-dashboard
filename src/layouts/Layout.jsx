@@ -8,9 +8,9 @@ const Layout = ({ children }) => {
     useInitializeUserFromLocalStorage();
   return (
     <div className={styles.app_container}>
-      <Navbar />
+      <DashSide />
       <div className={styles.content_wrapper}>
-        <DashSide />
+        <Navbar />
         <main className={styles.main_content}>{children}</main>
       </div>
     </div>

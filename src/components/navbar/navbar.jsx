@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./navbar.module.css";
+import user from '../../assets/UserImage.png'
 
 import { useAppSelector } from "../../redux/store";
 
@@ -25,8 +26,7 @@ const Navbar = () => {
           <div className={styles.user}>
             <div className={styles.userImage}>
               <img
-                src="Images/Rectangle 1393.png"
-                alt="id"
+                src= {user}
                 width="40px"
                 height="40px"
               />

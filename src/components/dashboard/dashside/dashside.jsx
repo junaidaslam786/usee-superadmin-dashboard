@@ -11,6 +11,7 @@ const DashSide = () => {
   const dispatch = useDispatch();
 
   const [expandedMenu, setExpandedMenu] = useState(null);
+  
   const handleMenuClick = (menuId) => {
     if (expandedMenu === menuId) {
       setExpandedMenu(null); // collapse if it's already expanded

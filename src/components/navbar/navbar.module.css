@@ -1,6 +1,6 @@
 .header {
     height: 12vh;
-    width: 81vw;
+    width: 80vw;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -91,6 +91,7 @@
 .userName span {
     font-size: 1vh;
     font-weight: bold;
+    margin: -1vh 0 0 1vh;
 }
 
 .userInfo p{
@@ -101,7 +102,7 @@
 .home {
     height: 5vh;
     background-color: #171B2A;
-    width: 81vw;
+    width: 80vw;
     color: white;
     display: flex;
     align-items: center;
