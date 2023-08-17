@@ -1,0 +1,42 @@
+.userEmbeddedCode {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    background-color: white;
+    border: 1px solid;
+    box-shadow: 1px 1px 6px black;
+    border-radius: 3px;
+    padding: 30px;
+    margin-bottom: 150px;
+}
+
+.userEmbeddedCodeHeading {
+    display: flex; 
+    flex-direction: column;
+}
+
+.userEmbeddedCodeHeading h3 {
+    letter-spacing: 1px;
+}
+
+.userEmbeddedCodeHeading p {
+    color: #737791;
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+.userEmbeddedCodeButton {
+    width: 150px;
+    height: 40px;
+    color: #00C800;
+    border: 2px solid #00C800;
+    margin-top: 30px;
+    background-color: #FAFBFC;
+    border-radius: 3px;
+}
+
+.userEmbeddedCodeButton:hover {
+    background-color: #00C800;
+    color: white;
+    cursor: pointer;
+}

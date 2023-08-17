@@ -19,7 +19,7 @@ const userApi = createApi({
           }
         };
       },
-      transformResponse: (result) => result.data.user,
+      transformResponse: (result) => result[0],
       async onQueryStarted(args, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled;

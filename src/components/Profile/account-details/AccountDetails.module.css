@@ -1,0 +1,131 @@
+.accountDetails {
+    background-color: white;
+    border: 1px solid;
+    box-shadow: 1px 1px 6px black;
+    border-radius: 3px;
+    padding: 30px;
+}
+
+.userFiles {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.userFilesHeading {
+    display: flex;
+    flex-direction: column;
+    font-family: 'roboto', sans-serif;
+}
+
+.userFilesHeading h3 {
+    letter-spacing: 1px;
+}
+
+.userFilesHeading p {
+    color: #737791;
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+.userFilesImg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 60px;
+}
+
+.userFilesImg img {
+    border-radius: 50px;
+}
+
+.userFilesImg a {
+    color: #00C800;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.userForm {
+    margin-top: 40px;
+}
+
+.userProfile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+    font-family: 'roboto' sans-serif;
+    font-size: 12px;
+    color: #171B2A;
+}
+
+.userDiv input {
+    border: 2px solid #00C800;
+    width: 200px;
+    margin-top: 10px;
+    border-radius: 3px;
+    padding: 10px;
+    background-color: #FAFBFC;
+}
+
+.userMortgage {
+    font-family: 'roboto' sans-serif;
+    font-size: 12px;
+    color: #171B2A;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.companyLogo {
+    margin-left: 15px;
+}
+
+.fileUpload {
+    border: 2px solid #00C800;
+    color: #00C800;
+    width: 220px;
+    margin-top: 10px;
+    border-radius: 3px;
+    background-color: #FAFBFC;
+    height: 36px;
+}
+
+.userButtons {
+    display: flex;
+    flex-direction: row;
+    margin-top: 35px;
+}
+
+.saveButton {
+    width: 120px;
+    height: 40px;
+    background-color: #FAFBFC;
+    color: #00C800;
+    border: 2px solid #00C800;
+    border-radius: 3px;
+}
+
+.saveButton:hover{
+    background-color: #00C800;
+    color: white;
+    cursor: pointer;
+}
+
+.discardButton {
+    width: 120px;
+    height: 40px;
+    background-color: #FAFBFC;
+    color: red;
+    border: 2px solid red;
+    border-radius: 3px;
+    margin-left: 20px;
+}
+
+.discardButton:hover {
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}

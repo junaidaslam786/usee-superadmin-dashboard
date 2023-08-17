@@ -1,10 +1,14 @@
-import React from 'react'
-import styles from './navbar.module.css'
+import React from "react";
+import styles from "./navbar.module.css";
 
-const navbar = () => {
+import { useAppSelector } from "../../redux/store";
+
+const Navbar = () => {
+  const userState = useAppSelector((state) => state.userState);
+  console.log(userState);
   return (
     <div>
-        <div className={styles.header}>
+      <div className={styles.header}>
         <div className={styles.dashlogo}>
           <p>Dashboard</p>
         </div>
@@ -29,7 +33,7 @@ const navbar = () => {
             </div>
             <div className={styles.userInfo}>
               <div className={styles.userName}>
-                <p>John Doe</p>
+                <p>{userState?.user?.firstName || "Guest"}</p>
                 <span className="material-symbols-outlined">expand_more</span>
               </div>
               <p>Admin</p>
@@ -41,7 +45,7 @@ const navbar = () => {
         <p>Home / Dashboard</p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default navbar
+export default Navbar;

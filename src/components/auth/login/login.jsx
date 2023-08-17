@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./login.module.css";
 import { useForm } from "react-hook-form";
-import { useLoginUserMutation } from '../../../redux/api/authApi';
+import { useLoginUserMutation } from "../../../redux/api/authApi";
 
 import { useNavigate } from "react-router-dom";
 
@@ -13,16 +13,21 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const [loginUser, { isLoading }] =
-    useLoginUserMutation();
+  const [loginUser, { isLoading }] = useLoginUserMutation();
 
   const onSubmit = async (data) => {
     try {
-      await loginUser(data).unwrap();
-      navigate("/dashboard");
+      await loginUser(data)
+        .unwrap()
+        .then((response) => {
+          if (response.token) {
+            localStorage.setItem("token", response.token);
+            navigate("/dashboard");
+          }
+        });
       // Handle success, e.g., navigate to a different page or show a success message
     } catch (err) {
-      console.log("Login Error", err.message)
+      console.log("Login Error", err.message);
       // Handle the error (err.message will contain error message)
     }
   };

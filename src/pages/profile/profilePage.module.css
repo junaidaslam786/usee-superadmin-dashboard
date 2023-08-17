@@ -1,0 +1,80 @@
+.whole {
+    background-color: #FAFBFC;
+}
+
+.profileCreation {
+    width: 162vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.profileCreationHeading h3 {
+    margin-left: 30px;
+    letter-spacing: 0.5px;
+}
+
+.profileCreationButtons button {
+    font-family: 'roboto', sans-serif;
+    padding: 15px 30px;
+    color: #00C800;
+    background: #FAFBFC;
+    border: 2px solid #00C800;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.profileCreationButtons button:hover{
+    color: white;
+    background-color: #00C800;
+    cursor: pointer;
+}
+
+.profileCreationButtons .one {
+    margin-right: 60px;
+}
+
+.ProfileInfo {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+
+.profileLinks {
+    background-color: white;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 180px;
+    height: 200px;
+    border: 1px solid black;
+    border-radius: 3px;
+    box-shadow: 1px 1px 4px black;
+}
+
+.profileLinks div {
+    font-family: 'roboto', sans-serif;
+    font-size: 12px;
+    color: #737791;
+    padding-left: 20px;
+    height: 40px;
+    border-bottom: 1px solid black;
+    display: flex;
+    align-items: center;
+}
+
+.profileLinks div:hover {
+    border-left: 3px solid #00C800;
+    color: #00C800;
+    cursor: pointer;
+}
+
+.UserRegistration {
+    display: flex;
+    flex-direction: column;
+    width: 116vh;
+    margin: 0 60px 0 30px;
+    background-color: #FAFBFC;
+}

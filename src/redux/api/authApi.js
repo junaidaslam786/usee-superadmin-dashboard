@@ -26,7 +26,9 @@ const authApi = createApi({
       },
       async onQueryStarted(args, { dispatch, queryFulfilled }) {
         try {
-          await queryFulfilled;
+          let responseData = await queryFulfilled.then((result) => result.data);
+          localStorage.setItem("userData", JSON.stringify(responseData.user));
+          localStorage.setItem("token", responseData.token);
           await dispatch(userApi.endpoints.getMe.initiate(null));
         } catch (error) {
           console.error("Error after login:", error);
