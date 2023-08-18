@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Navigate, useLocation, useNavigate, Link } from "react-router-dom";
 import styles from "./navbar.module.css";
 
 import { useAppSelector } from "../../redux/store";
@@ -7,6 +8,8 @@ const Navbar = () => {
   const userState = useAppSelector((state) => state.userState);
   // console.log(userState);
 
+  const navigate = useNavigate();
+
   // 1. State Management
   const [showDropdown, setShowDropdown] = useState(false);
 
@@ -14,6 +17,10 @@ const Navbar = () => {
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
   };
+
+  // Get the current location's path
+  const location = useLocation();
+  const pathnames = location.pathname.split("/").filter((x) => x);
 
   return (
     <div>
@@ -61,8 +68,30 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <div className={styles.home}>
+      {/*<div className={styles.home}>
         <p>Home / Dashboard</p>
+      </div>*/}
+      <div className={styles.home}>
+          <p>
+              {pathnames.length === 0 ? (
+                  // <Link to="/dashboard" style={{color:'#fff'}}>Home</Link>
+                  <Link to="/dashboard" className={styles.linkColor}>Home</Link>
+              ) : (
+                  <>
+                      <Link to="/dashboard" className={styles.linkColor}>Home</Link> /{" "}
+                      {pathnames.map((name, index) => {
+                          const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
+                          return index === pathnames.length - 1 ? (
+                              name.charAt(0).toUpperCase() + name.slice(1)
+                          ) : (
+                              <>
+                                  <Link to={routeTo}>{name.charAt(0).toUpperCase() + name.slice(1)}</Link> /{" "}
+                              </>
+                          );
+                      })}
+                  </>
+              )}
+          </p>
       </div>
     </div>
   );

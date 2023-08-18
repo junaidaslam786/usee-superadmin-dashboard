@@ -134,3 +134,7 @@
 .dropdownMenu p:hover {
   background-color: #f5f5f5;
 }
+
+.linkColor {
+    color: white;
+}
