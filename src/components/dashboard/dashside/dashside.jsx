@@ -44,7 +44,8 @@ const DashSide = () => {
                     key={child.id}
                   >
                     {child.icon}
-                    <a href={child.navLink}>{child.title}</a>
+                    {/* <a href={child.navLink}>{child.title}</a> */}
+                    <a href='#'>{child.title}</a>
                   </div>
                 ))}
             </Fragment>

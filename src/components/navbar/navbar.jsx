@@ -33,7 +33,9 @@ const Navbar = () => {
           <input type="text" placeholder="Search here..." />
         </div>
         <div className={styles.notify}>
-          <div className={styles.user} onClick={toggleDropdown}> {/* Add onClick handler */}
+          <div className={styles.user} onClick={toggleDropdown}>
+            {" "}
+            {/* Add onClick handler */}
             <div>
               <button className={styles.notification}>
                 <span className="material-symbols-outlined">notifications</span>
@@ -42,7 +44,7 @@ const Navbar = () => {
             <div className={styles.user}>
               <div className={styles.userImage}>
                 <img
-                  src= {`${process.env.REACT_APP_SERVER_ENDPOINT}/${userState?.user?.profileImage}`}
+                  src={`${process.env.REACT_APP_SERVER_ENDPOINT}/${userState?.user?.profileImage}`}
                   width="40px"
                   height="40px"
                 />
@@ -56,7 +58,6 @@ const Navbar = () => {
               </div>
             </div>
             {/* ... user image and info ... */}
-            
             {/* 3. Dropdown Menu */}
             {showDropdown && (
               <div className={styles.dropdownMenu}>
@@ -72,26 +73,34 @@ const Navbar = () => {
         <p>Home / Dashboard</p>
       </div>*/}
       <div className={styles.home}>
-          <p>
-              {pathnames.length === 0 ? (
-                  // <Link to="/dashboard" style={{color:'#fff'}}>Home</Link>
-                  <Link to="/dashboard" className={styles.linkColor}>Home</Link>
-              ) : (
+        <p>
+          {pathnames.length === 0 ? (
+            // <Link to="/dashboard" style={{color:'#fff'}}>Home</Link>
+            <Link to="/dashboard" className={styles.linkColor}>
+              Home
+            </Link>
+          ) : (
+            <>
+              <Link to="/dashboard" className={styles.linkColor}>
+                Home
+              </Link>{" "}
+              /{" "}
+              {pathnames.map((name, index) => {
+                const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
+                return index === pathnames.length - 1 ? (
+                  name.charAt(0).toUpperCase() + name.slice(1)
+                ) : (
                   <>
-                      <Link to="/dashboard" className={styles.linkColor}>Home</Link> /{" "}
-                      {pathnames.map((name, index) => {
-                          const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
-                          return index === pathnames.length - 1 ? (
-                              name.charAt(0).toUpperCase() + name.slice(1)
-                          ) : (
-                              <>
-                                  <Link to={routeTo}>{name.charAt(0).toUpperCase() + name.slice(1)}</Link> /{" "}
-                              </>
-                          );
-                      })}
+                    <Link to={routeTo}>
+                      {name.charAt(0).toUpperCase() + name.slice(1)}
+                    </Link>{" "}
+                    /{" "}
                   </>
-              )}
-          </p>
+                );
+              })}
+            </>
+          )}
+        </p>
       </div>
     </div>
   );
