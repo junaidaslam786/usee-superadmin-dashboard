@@ -30,13 +30,16 @@ const userApi = createApi({
     profileUpdate: builder.mutation({
       query: ({ id, userData }) => {
         const token = localStorage.getItem("token");
+        // userData.append("id", id);
         const requestBody = { ...userData, id };
+
         return {
           url: `/superadmin/user/update`, // Replace this with the actual endpoint URL.
           method: "PUT", // Assuming you're using PUT for updates.
           body: requestBody, // This is the data you'd send for the profile update.
           headers: {
             Authorization: `Bearer ${token}`,
+            // "Content-Type": "multipart/form-data",
           },
         };
       },
@@ -49,9 +52,27 @@ const userApi = createApi({
 
       // You can add additional methods like onQueryStarted, transformResponse, etc. if needed.
     }),
+    uploadImage: builder.mutation({
+      query: ({ id, imageFile }) => {
+        const token = localStorage.getItem("token");
+        const formData = new FormData();
+        formData.append("id", id);
+        formData.append("image", imageFile);
+        // const requesBody = { id, imageFile };
+        return {
+          url: "/superadmin/user/upload-image",
+          method: "POST",
+          body: formData,
+          headers: {
+            Authorization: `Bearer ${token}`,
+            // "Content-Type": "multipart/form-data",
+          },
+        };
+      },
+    }),
   }),
 });
 
-const { useProfileUpdateMutation } = userApi;
+const { useProfileUpdateMutation, useUploadImageMutation } = userApi;
 
-export { userApi, useProfileUpdateMutation };
+export { userApi, useProfileUpdateMutation, useUploadImageMutation };

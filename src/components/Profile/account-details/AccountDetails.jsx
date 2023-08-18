@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import styles from "./AccountDetails.module.css";
 import user from "../../../assets/UserImage.png";
-import { useProfileUpdateMutation } from "../../../redux/api/userApi";
+import {
+  useProfileUpdateMutation,
+  useUploadImageMutation,
+} from "../../../redux/api/userApi";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import {updateUserProfile} from '../../../redux/features/userSlice'
+import { updateUserProfile, setUser } from "../../../redux/features/userSlice";
 
 function AccountDetails() {
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -16,7 +18,12 @@ function AccountDetails() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [city, setCity] = useState("");
 
-  const [updateProfile, { isLoading, isError, isSuccess }] = useProfileUpdateMutation();
+  const [profileImage, setProfileImage] = useState(null);
+  const [selectedImageFile, setSelectedImageFile] = useState(null);
+
+  const [updateProfile, { isLoading, isError, isSuccess }] =
+    useProfileUpdateMutation();
+  const [uploadImage] = useUploadImageMutation();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,18 +31,24 @@ function AccountDetails() {
     const formData = {
       firstName,
       lastName,
-      // companyPosition,
       phoneNumber,
-
-      city
-      // ... Other fields
+      city,
     };
-
     try {
-      const user = JSON.parse(localStorage.getItem('userData'));
-      await updateProfile({id: user.id, userData: formData});
+      const user = JSON.parse(localStorage.getItem("userData"));
+      await updateProfile({ id: user.id, userData: formData });
       dispatch(updateUserProfile({ ...formData, id: user.id }));
-      navigate('/profile-detail')
+
+      if (selectedImageFile) {
+        try {
+          await uploadImage({ id: user.id, imageFile: selectedImageFile });
+        } catch (error) {
+          console.error("Error uploading image:", error);
+        }
+      }
+
+      dispatch(setUser(formData));
+      navigate("/dashboard");
       // Handle success, maybe show a toast or message
     } catch (error) {
       // Handle error, show error message to the user
@@ -52,20 +65,45 @@ function AccountDetails() {
             reprehenderit!
           </p>
         </div>
+
         <div className={styles.userFilesImg}>
-          <img src={user} alt="profilePicture" width="100px" height="100px" />
-          <a href="#">Upload Image</a>
+          <img
+            src={profileImage || user}
+            alt="profilePicture"
+            width="100px"
+            height="100px"
+          />
+          <input
+            type="file"
+            onChange={(e) => {
+              const file = e.target.files[0];
+              if (file) {
+                setProfileImage(URL.createObjectURL(file));
+                setSelectedImageFile(file);
+              }
+            }}
+          />
         </div>
       </div>
       <form className={styles.userForm} onSubmit={handleSubmit}>
         <div className={styles.userProfile}>
           <div className={styles.userDiv}>
             <p>First Name</p>
-            <input type="text" placeholder="John" value={firstName} onChange={e => setFirstName(e.target.value)} />
+            <input
+              type="text"
+              placeholder="John"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+            />
           </div>
           <div className={styles.userDiv}>
             <p>Last Name</p>
-            <input type="text" placeholder="Doe" value={lastName} onChange={e => setLastName(e.target.value)}/>
+            <input
+              type="text"
+              placeholder="Doe"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+            />
           </div>
           {/* <div className={`${styles.userDiv} ${styles.last}`}>
             <p>Company Position</p>
@@ -75,7 +113,11 @@ function AccountDetails() {
         <div className={styles.userProfile}>
           <div className={styles.userDiv}>
             <p>Phone No</p>
-            <input type="text" value={phoneNumber} onChange={e => setPhoneNumber(e.target.value)}/>
+            <input
+              type="text"
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
+            />
           </div>
           {/* <div className={styles.userDiv}>
             <p>Mobile Number</p>
@@ -97,7 +139,11 @@ function AccountDetails() {
           </div> */}
           <div className={`${styles.userDiv} ${styles.last}`}>
             <p>City</p>
-            <input type="text" value={city} onChange={e => setCity(e.target.value)}/>
+            <input
+              type="text"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+            />
           </div>
         </div>
         <div className={styles.userMortgage}>
@@ -115,7 +161,13 @@ function AccountDetails() {
           </div> */}
         </div>
         <div className={styles.userButtons}>
-          <button className={styles.saveButton} type="submit" disabled={isLoading}>Save Changes</button>
+          <button
+            className={styles.saveButton}
+            type="submit"
+            disabled={isLoading}
+          >
+            Save Changes
+          </button>
           <button className={styles.discardButton}>Discard</button>
         </div>
       </form>

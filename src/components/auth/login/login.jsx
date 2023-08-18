@@ -2,11 +2,14 @@ import React from "react";
 import styles from "./login.module.css";
 import { useForm } from "react-hook-form";
 import { useLoginUserMutation } from "../../../redux/api/authApi";
+import { setUser } from "../../../redux/features/userSlice";
+import { useAppDispatch } from "../../../redux/store";
 
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   const {
     register,
@@ -22,6 +25,7 @@ const Login = () => {
         .then((response) => {
           if (response.token) {
             localStorage.setItem("token", response.token);
+            dispatch(setUser(response.user));
             navigate("/dashboard");
           }
         });
