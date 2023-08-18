@@ -68,7 +68,7 @@ function AccountDetails() {
 
         <div className={styles.userFilesImg}>
           <img
-            src={profileImage || user}
+            src={profileImage || user.profileImage}
             alt="profilePicture"
             width="100px"
             height="100px"
