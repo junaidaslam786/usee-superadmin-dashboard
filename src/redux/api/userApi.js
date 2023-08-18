@@ -46,7 +46,7 @@ const userApi = createApi({
       async onQueryStarted(args, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled;
-          dispatch(updateUserProfile(data));
+          dispatch(setUser(data));
         } catch (error) {}
       },
 
@@ -68,6 +68,12 @@ const userApi = createApi({
             // "Content-Type": "multipart/form-data",
           },
         };
+      },
+      async onQueryStarted(args, { dispatch, queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled;
+          dispatch(setUser(data));
+        } catch (error) {}
       },
     }),
   }),

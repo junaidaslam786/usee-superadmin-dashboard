@@ -12,7 +12,7 @@ const TimeZone = () => {
         </p>
       </div>
       <div className={styles.timeZoneLabel}>
-        <label for="Timezone"></label>
+        <label htmlFor="Timezone"></label>
         <select name="Time" id="Time">
           <option value="Islamabad">Islamabad</option>
           <option value="Karachi">Karachi</option>

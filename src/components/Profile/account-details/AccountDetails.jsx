@@ -8,8 +8,12 @@ import {
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { updateUserProfile, setUser } from "../../../redux/features/userSlice";
+import { useAppSelector } from "../../../redux/store";
 
 function AccountDetails() {
+
+  const userState = useAppSelector((state) => state.userState);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -23,7 +27,7 @@ function AccountDetails() {
 
   const [updateProfile, { isLoading, isError, isSuccess }] =
     useProfileUpdateMutation();
-  const [uploadImage] = useUploadImageMutation();
+  const [uploadImage, { data, error }] = useUploadImageMutation();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -42,13 +46,16 @@ function AccountDetails() {
       if (selectedImageFile) {
         try {
           await uploadImage({ id: user.id, imageFile: selectedImageFile });
+          // if (data && data.user) {
+          //   dispatch(setUser(data.user));
+          // }
         } catch (error) {
           console.error("Error uploading image:", error);
         }
       }
 
       dispatch(setUser(formData));
-      navigate("/dashboard");
+      // navigate("/dashboard");
       // Handle success, maybe show a toast or message
     } catch (error) {
       // Handle error, show error message to the user
@@ -68,7 +75,7 @@ function AccountDetails() {
 
         <div className={styles.userFilesImg}>
           <img
-            src={profileImage || user.profileImage}
+            src={profileImage || `${process.env.REACT_APP_SERVER_ENDPOINT}/${userState?.user?.profileImage}`}
             alt="profilePicture"
             width="100px"
             height="100px"
@@ -105,10 +112,7 @@ function AccountDetails() {
               onChange={(e) => setLastName(e.target.value)}
             />
           </div>
-          {/* <div className={`${styles.userDiv} ${styles.last}`}>
-            <p>Company Position</p>
-            <input type="text" placeholder="John" value={companyPosition} onChange={e => setCompanyPosition(e.target.value)}/>
-          </div> */}
+        
         </div>
         <div className={styles.userProfile}>
           <div className={styles.userDiv}>
@@ -119,24 +123,10 @@ function AccountDetails() {
               onChange={(e) => setPhoneNumber(e.target.value)}
             />
           </div>
-          {/* <div className={styles.userDiv}>
-            <p>Mobile Number</p>
-            <input type="text" placeholder="+923123456789" />
-          </div> */}
-          {/* <div className={`${styles.userDiv} ${styles.last}`}>
-            <p>Company Name</p>
-            <input type="text" placeholder="Eagle's Eye" value={companyName} onChange={e => setCompanyName(e.target.value)}/>
-          </div> */}
+      
         </div>
         <div className={styles.userProfile}>
-          {/* <div className={styles.userDiv}>
-            <p>Company Address</p>
-            <input type="text" value={companyAddress} onChange={e => setCompanyAddress(e.target.value)}/>
-          </div> */}
-          {/* <div className={styles.userDiv}>
-            <p>Zip Code</p>
-            <input type="text" value={zipCode} onChange={e => setZipCode(e.target.value)}/>
-          </div> */}
+        
           <div className={`${styles.userDiv} ${styles.last}`}>
             <p>City</p>
             <input
@@ -147,18 +137,7 @@ function AccountDetails() {
           </div>
         </div>
         <div className={styles.userMortgage}>
-          {/* <div className={styles.userDiv}>
-            <p>Mortgage Advisor Email</p>
-            <input type="text" />
-          </div> */}
-          {/* <div className={styles.companyLogo}>
-            <p>Company Logo</p>
-            <input
-              type="file"
-              name="fileUpload"
-              className={styles.fileUpload}
-            />
-          </div> */}
+        
         </div>
         <div className={styles.userButtons}>
           <button

@@ -61,12 +61,13 @@ const authApi = createApi({
         };
       },
     }),
-    resetPassword: builder.mutation({
-      query({ resetToken, password, passwordConfirm }) {
+    changeSuperAdminPassword: builder.mutation({
+      query({ email, oldPassword, newPassword, confirmNewPassword }) {
+        const token = localStorage.getItem("token")
         return {
-          url: `auth/resetpassword/${resetToken}`,
-          method: "PATCH",
-          body: { password, passwordConfirm },
+          url: 'superadmin/auth/change-password',
+          method: "PUT",
+          body: { email, oldPassword, newPassword, confirmNewPassword, token },
           credentials: "include",
         };
       },
@@ -80,7 +81,7 @@ const {
   useLogoutUserMutation,
   useVerifyEmailMutation,
   useForgotPasswordMutation,
-  useResetPasswordMutation,
+  useChangeSuperAdminPasswordMutation,
 } = authApi;
 
 export {
@@ -90,5 +91,5 @@ export {
   useLogoutUserMutation,
   useVerifyEmailMutation,
   useForgotPasswordMutation,
-  useResetPasswordMutation,
+  useChangeSuperAdminPasswordMutation,
 };

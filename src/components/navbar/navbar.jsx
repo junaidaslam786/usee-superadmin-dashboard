@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styles from "./navbar.module.css";
-import user from '../../assets/UserImage.png'
 
 import { useAppSelector } from "../../redux/store";
 
