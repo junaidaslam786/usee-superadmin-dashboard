@@ -138,3 +138,13 @@
 .linkColor {
     color: white;
 }
+
+@media screen and (max-width: 720px) {
+    .header {
+        width: 100vw;
+    }
+
+    .home {
+        width: 100vw;
+    }
+}

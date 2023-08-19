@@ -11,7 +11,6 @@ import { updateUserProfile, setUser } from "../../../redux/features/userSlice";
 import { useAppSelector } from "../../../redux/store";
 
 function AccountDetails() {
-
   const userState = useAppSelector((state) => state.userState);
 
   const navigate = useNavigate();
@@ -75,10 +74,11 @@ function AccountDetails() {
 
         <div className={styles.userFilesImg}>
           <img
-            src={profileImage || `${process.env.REACT_APP_SERVER_ENDPOINT}/${userState?.user?.profileImage}`}
+            src={
+              profileImage ||
+              `${process.env.REACT_APP_SERVER_ENDPOINT}/${userState?.user?.profileImage}`
+            }
             alt="profilePicture"
-            width="100px"
-            height="100px"
           />
           <input
             type="file"
@@ -92,8 +92,8 @@ function AccountDetails() {
           />
         </div>
       </div>
-      <form className={styles.userForm} onSubmit={handleSubmit}>
-        <div className={styles.userProfile}>
+      <div className={styles.mainDiv}>
+        <form className={styles.userForm} onSubmit={handleSubmit}>
           <div className={styles.userDiv}>
             <p>First Name</p>
             <input
@@ -112,44 +112,58 @@ function AccountDetails() {
               onChange={(e) => setLastName(e.target.value)}
             />
           </div>
-        
-        </div>
-        <div className={styles.userProfile}>
-          <div className={styles.userDiv}>
-            <p>Phone No</p>
-            <input
-              type="text"
-              value={phoneNumber}
-              onChange={(e) => setPhoneNumber(e.target.value)}
-            />
+          <div className={styles.userProfile}>
+            <div className={styles.userDiv}>
+              <p>Phone No</p>
+              <input
+                type="text"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+              />
+            </div>
           </div>
-      
-        </div>
-        <div className={styles.userProfile}>
-        
-          <div className={`${styles.userDiv} ${styles.last}`}>
-            <p>City</p>
-            <input
-              type="text"
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
-            />
+          <div className={styles.userProfile}>
+            <div className={styles.userDiv}>
+              <p>City</p>
+              <input
+                type="text"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className={styles.userMortgage}></div>
+          <div className={styles.userButtons}>
+            <button
+              className={styles.saveButton}
+              type="submit"
+              disabled={isLoading}
+            >
+              Save Changes
+            </button>
+            <button className={styles.discardButton}>Discard</button>
+          </div>
+        </form>
+        <div className={styles.mainCard}>
+          <div className={styles.card}>
+            <img src={user} />
+            <div className={styles.margin}>
+              <div className={styles.flexTate}>
+                <p className={styles.cardNameHeading}>Name: </p>
+                <p className={styles.cardName}>Abdul Hakeem</p>
+              </div>
+              <div className={styles.flexTate}>
+                <p className={styles.cardNameHeading}>Mobile: </p>
+                <p className={styles.cardName}>1234567890</p>
+              </div>
+              <div className={styles.flexTate}>
+                <p className={styles.cardNameHeading}>City: </p>
+                <p className={styles.cardName}>Chungi No. 07</p>
+              </div>
+            </div>
           </div>
         </div>
-        <div className={styles.userMortgage}>
-        
-        </div>
-        <div className={styles.userButtons}>
-          <button
-            className={styles.saveButton}
-            type="submit"
-            disabled={isLoading}
-          >
-            Save Changes
-          </button>
-          <button className={styles.discardButton}>Discard</button>
-        </div>
-      </form>
+      </div>
       {isSuccess && <p>Profile updated successfully!</p>}
       {isError && <p>There was an error updating the profile.</p>}
     </div>

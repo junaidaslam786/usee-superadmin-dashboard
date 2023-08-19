@@ -1,9 +1,23 @@
+.burger {
+  background: #fafbfc;
+  border: 0.5vh solid #00C800;
+  font-size: 4vh;
+  color: #00C800;
+  cursor: pointer;
+  margin: 2vh 2vw;
+  display: none;
+}
+
+.burger_menu {
+    width: 20vw;
+}
+
 .menu {
     height: 100%;
     display: flex;
     flex-direction: column;
-    width: 20vw;
     border-right: 1px solid #171B2A;
+    display: block;
 }
 
 .content {
@@ -27,6 +41,10 @@
     font-size: 1vh;
     padding: 1vh 4vw; /* Increased left padding for indentation */
   }
+
+.submenu a{
+    margin-left: 0.9vw;
+}
 
 .pages a {
     color: #737791;
@@ -92,4 +110,14 @@
     position: absolute;
     left: 2vw;
     transform: rotateY(-50%);
+}
+
+@media screen and (max-width: 720px) {
+    .menu {
+        display: none;
+    }
+    .burger {
+        display: block;
+        position: sticky;
+    }
 }

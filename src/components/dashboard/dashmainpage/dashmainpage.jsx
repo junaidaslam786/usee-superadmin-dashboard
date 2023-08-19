@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./dashmainpage.module.css";
 const DashMainPage = () => {
   return (
-    <div className={styles.main}>
       <div className={styles.grid}>
         <div className={styles.card}>
           <div className={styles.cardInfo}>
@@ -28,7 +27,6 @@ const DashMainPage = () => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

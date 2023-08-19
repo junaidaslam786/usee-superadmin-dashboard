@@ -39,6 +39,8 @@
 
 .userFilesImg img {
     border-radius: 50px;
+    width: 100px;
+    height: 100px;
 }
 
 .userFilesImg a {
@@ -48,40 +50,79 @@
     font-weight: 600;
 }
 
-.userForm {
-    margin-top: 3vh;
-}
-
-.userProfile {
+.mainDiv {
     display: flex;
     flex-direction: row;
-    /* justify-content: space-between; */
-    margin-top: 1vh;
-    font-family: 'roboto' sans-serif;
+    margin-top: 3vh;
+    justify-content: space-between;
+}
+
+.mainCard {
+    width: 30vw;
+    height: 60vh;
+    margin-top: 7vh;
+}
+
+.card {
+    border: 0.4vh solid #00C800;
+    margin: 0 0 0 5vw;
+    width: 20vw;
+    height: 60vh;
+    border-radius: 30% 0;
+    background-color: #FAFBFC;
+}
+
+.card img {
+    border: 0 solid;
+    width: 20vw;
+    height: 40vh;
+    border-radius: 30% 0 0 0;
+}
+
+.margin {
+    margin: 1.5vh 0 0 3vw;
+}
+
+.flexTate {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.cardNameHeading {
+    font-size: 2.5vh;
+    font-weight: 600;
+    margin-top: 0vh;
+}
+
+.cardName {
     font-size: 2vh;
-    color: #171B2A;
+    font-weight: 400;
+    margin-top: 0vh;
+    margin-left: 0.5vw;
 }
 
 .userDiv {
     margin-right: 2vw;
+    font-family: 'roboto' sans-serif;
+    color: #171B2A;
 }
 
 .userDiv input {
     border: 0.4vh solid #00C800;
-    width: 15.5vw;
+    width: 100%;
     border-radius: 3px;
     padding: 1.5vh;
     background-color: #FAFBFC;
-}
-
-.last {
-    margin-right: 0;
+    margin-top: 1vh;
 }
 
 .userDiv p{
     font-size: 2vh;
     font-weight: 600;
     font-family: 'roboto', sans-serif;
+    margin-top: 3vh;
+    margin-left: 0.5vw;
 }
 
 .userMortgage {
@@ -146,4 +187,47 @@
     background-color: red;
     color: white;
     cursor: pointer;
+}
+
+/* Media Query */
+
+@media screen and (max-width: 720px) {
+    .userFilesImg img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .mainDiv {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20vh;
+    }
+
+    .mainCard {
+        width: 50vw;
+    }    
+    .card {
+        width: 40vw;
+        margin: 10vh 30vw;
+    }
+
+    .card img {
+        width: 40vw;
+    }
+
+    .userButtons {
+        margin-left: 10vw;
+    }
+
+    .saveButton {
+        width: 20vw;
+    }
+
+    .discardButton {
+        width: 20vw;
+    }
+
+    .userDiv {
+        margin: 0 10vw;
+    }
 }

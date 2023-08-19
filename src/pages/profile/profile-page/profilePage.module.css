@@ -1,51 +1,19 @@
-.profileCreation {
+.ProfileInfo {
     width: 80vw;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-top: 4vh;
-    background-color: #FAFBFC;
-}
-
-.profileCreationHeading h3 {
-    margin-left: 2vw;
-    letter-spacing: 0.5px;
-}
-
-.profileCreationButtons button {
-    font-family: 'roboto', sans-serif;
-    padding: 15px 30px;
-    color: #00C800;
-    background: #FAFBFC;
-    border: 2px solid #00C800;
-    border-radius: 5px;
-    margin-left: 10px;
-}
-
-.profileCreationButtons button:hover{
-    color: white;
-    background-color: #00C800;
-    cursor: pointer;
-}
-
-.profileCreationButtons .one {
-    margin-right: 60px;
-}
-
-.ProfileInfo {
-    display: flex;
     flex-direction: row;
-    margin-top: 30px;
+    margin-top: 4vh;
+    background-color: #FAFBFC;
 }
 
 .profileLinks {
     background-color: white;
-    margin-left: 30px;
+    margin-left: 2vw;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     width: 15vw;
-    height: 200px;
+    height: 31vh;
     border: 1px solid black;
     border-radius: 3px;
     box-shadow: 1px 1px 4px black;
@@ -53,10 +21,10 @@
 
 .profileLinks div {
     font-family: 'roboto', sans-serif;
-    font-size: 12px;
+    font-size: 2vh;
     color: #737791;
-    padding-left: 20px;
-    height: 40px;
+    padding-left: 2vw;
+    height: 6vh;
     border-bottom: 1px solid black;
     display: flex;
     align-items: center;
@@ -71,7 +39,46 @@
 .UserRegistration {
     display: flex;
     flex-direction: column;
-    width: 116vh;
-    margin: 0 60px 0 30px;
+    width: 57vw;
+    margin: 0 3vw;
     background-color: #FAFBFC;
+}
+
+/* Media Query */
+
+@media screen and (max-width: 720px) {
+    .ProfileInfo{
+        display: flex;
+        flex-direction: column;
+        margin-top: 0;
+    }
+
+    .profileLinks {
+        display: flex;
+        flex-direction: row;
+        width: 100vw;
+        margin-left: 0;
+        height: 6vh;
+        border-radius: 0;
+        box-shadow: none;
+        border: none;
+    }
+
+    .profileLinks div:hover {
+        border-left: none;
+        border-bottom: 3px solid #00C800;
+    }
+
+    .profileLinks div {
+        font-size: 1vw;
+        justify-content: center;
+        padding-left: 0;
+    }
+
+    .UserRegistration {
+        width: 100vw;
+        margin-top: 4vh;
+        margin-left: 0;
+        border: none;
+    }
 }

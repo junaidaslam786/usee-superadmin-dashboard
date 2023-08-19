@@ -1,17 +1,14 @@
-.main {
-    display: flex;
-    flex-direction: column;
-}
-
 .grid {
     height: 83vh;
     width: 81vw;
+    display: flex;
+    flex-direction: column;
 }
 
 .card {
     margin: 4vh 0 0 1vw;
     width: 13vw;
-    height: 13vh;
+    height: 15vh;
     background-color: white;
     border: 0px solid;
     border-radius: 10px;
@@ -88,4 +85,23 @@
     border: #00C800;
     border-radius: 50px;
     font-size: 1.5vh;
+}
+
+
+/* Media Query */
+
+@media screen and (max-width: 720px) {
+    .card {
+        width: 40vw;
+        height: 20vh;
+        margin: 5vh 10vw;
+    }
+
+    .btn {
+        width: 40vw;
+    }
+
+    .cardButton span {
+        right: 10vw;
+    }
 }
