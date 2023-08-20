@@ -8,7 +8,7 @@
   display: none;
 }
 
-.burger_menu {
+.burgerMenu {
     width: 20vw;
 }
 
@@ -32,9 +32,11 @@
     font-size: 2vh;
     font-weight: bold;
     padding: 1vh 2vw;
-    border-radius: 5px;
-    margin: 1vh 5%;
+    border-radius: 1vmin;
+    margin: 0vh 5%;
     cursor: pointer;
+    color: #737791;
+    fill: #737791;
 }
 
 .submenu {
@@ -42,16 +44,17 @@
     padding: 1vh 4vw; /* Increased left padding for indentation */
   }
 
-.submenu a{
+.submenu a {
     margin-left: 0.9vw;
+    text-decoration: none;
 }
 
 .pages a {
-    color: #737791;
-    text-decoration: none;
     font-family: 'roboto', sans-serif;
     font-size: 2vh;
     font-weight: 600;
+    text-decoration: none;
+    color: #737791;
 }
 
 .pages:hover {
@@ -60,20 +63,10 @@
     border: 1px solid #00C800;
     color: white;
     cursor: pointer;
+    fill: white;
 }
 
-.pages a:hover {
-    color: white;
-}
-
-.pages span {
-    margin-right: 2vw;
-    font-size: 3vh;
-    color: #737791;
-    margin-left: 2vw;
-}
-
-.pages span:hover {
+.pages:hover a {
     color: white;
 }
 
@@ -81,20 +74,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 5vh 0 3vh 7vw;
-    height: 8vh;
-    width: 3vw;
+}
+
+.image img {
+    margin: 7vh 0;
+    height: 5vmax;
+    width: 7vmax;
 }
 
 .signout {
     background-color: #171B2A;
-    width: 17vw;
+    width: 16vw;
     height: 5vh;
     color: white;
     font-family: 'roboto', sans-serif;
-    border: 0px solid;
-    border-radius: 10px;
-    margin-left: 1vw;
+    border: 1px solid #171B2A;
+    border-radius: 1vmin;
+    margin: 0 1vw;
+    font-size: 2vmin;
 }
 
 .sign {
@@ -108,6 +105,7 @@
 .sign span {
     color: white;
     position: absolute;
+    font-size: 3vmin;
     left: 2vw;
     transform: rotateY(-50%);
 }

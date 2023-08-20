@@ -5,7 +5,7 @@
     background-color: white;
     border: 1px solid;
     box-shadow: 1px 1px 6px black;
-    border-radius: 3px;
+    border-radius: 1vmin;
     padding: 3vh;
 }
 
@@ -28,10 +28,10 @@
 
 .userBackgroundImageFiles {
     width: 100%;
-    border: 0.4vh solid #00C800;
+    border: 0.3vh solid #00C800;
     margin-top: 2vh;
-    border-radius: 3px;
-    padding: 1vh 0;
+    border-radius: 1vmin;
+    padding: 0.5vh 0;
     background-color: #FAFBFC;
     display: flex;
     align-items: center;

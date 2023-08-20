@@ -17,6 +17,8 @@
 
 .inputfield {
     position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .inputfield span {
@@ -33,10 +35,10 @@
     height: 5vh;
     background-color: #FAFBFC;
     border: 0px solid;
-    border-radius: 5px;
+    border-radius: 1vmin;
     text-align: center;
     font-family: 'roboto', sans-serif;
-    font-size: 1.5vh;
+    font-size: 2vmin;
 }
 
 .notify {
@@ -51,12 +53,14 @@
     background-color: #FAFBFC;
     border: 0px solid;
     color: #00C800;
-    border-radius: 5px;
+    border-radius: 1vmin;
+    display: flex;
+    align-items: center;
     margin-right: 3vw;
 }
 
 .notification span {
-    font-size: 2vh;
+    font-size: 2vmin;
 }
 
 .user {
@@ -65,8 +69,10 @@
     align-items: center;
 }
 
-.userImage {
-    border-radius: 5px;
+.userImage img {
+    width: 3vw;
+    height: 6vh;
+    border-radius: 1vmin;
 }
 
 .userInfo {
@@ -92,6 +98,10 @@
     font-size: 1vh;
     font-weight: bold;
     margin: -1vh 0 0 1vh;
+}
+
+.userName span:hover {
+    cursor: pointer;
 }
 
 .userInfo p{
@@ -141,10 +151,10 @@
 
 @media screen and (max-width: 720px) {
     .header {
-        width: 100vw;
+        width: 99.4vw;
     }
 
     .home {
-        width: 100vw;
+        width: 99.4vw;
     }
 }

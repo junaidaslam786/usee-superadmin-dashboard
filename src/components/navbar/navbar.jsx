@@ -45,8 +45,6 @@ const Navbar = () => {
               <div className={styles.userImage}>
                 <img
                   src={`${process.env.REACT_APP_SERVER_ENDPOINT}/${userState?.user?.profileImage}`}
-                  width="40px"
-                  height="40px"
                 />
               </div>
               <div className={styles.userInfo}>

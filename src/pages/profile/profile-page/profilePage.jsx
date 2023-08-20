@@ -12,7 +12,7 @@ const ProfilePage = () => {
     <Layout>
       <div className={styles.ProfileInfo}>
         <div className={styles.profileLinks}>
-          <div>
+          <div className={styles.AD}>
             <p>Account Details</p>
           </div>
           <div>
@@ -24,7 +24,7 @@ const ProfilePage = () => {
           <div>
             <p>Call Background Images</p>
           </div>
-          <div>
+          <div className={styles.EC}>
             <p>Embedded code</p>
           </div>
         </div>

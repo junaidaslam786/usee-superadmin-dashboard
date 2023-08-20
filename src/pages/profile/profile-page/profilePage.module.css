@@ -13,9 +13,9 @@
     flex-direction: column;
     justify-content: space-around;
     width: 15vw;
-    height: 31vh;
+    height: 30.5vh;
     border: 1px solid black;
-    border-radius: 3px;
+    border-radius: 1vmin;
     box-shadow: 1px 1px 4px black;
 }
 
@@ -34,6 +34,14 @@
     border-left: 3px solid #00C800;
     color: #00C800;
     cursor: pointer;
+}
+
+.AD {
+    border-radius: 1vmin 0 0 0;
+}
+
+.EC {
+    border-radius: 0 0 1vmin 1vmin;
 }
 
 .UserRegistration {
@@ -80,5 +88,9 @@
         margin-top: 4vh;
         margin-left: 0;
         border: none;
+    }
+
+    .profileLinks div {
+        border-radius: 0 0 1vmin 1vmin;
     }
 }

@@ -4,7 +4,7 @@ import logo from "../../../assets/logo.png";
 import navigationConfig from "../../../config/navigationConfig"; // Import the navigationConfig
 import { useDispatch } from "react-redux";
 import { logout } from "../../../redux/features/userSlice";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const DashSide = () => {
   const navigate = useNavigate();
@@ -52,6 +52,7 @@ const DashSide = () => {
                 >
                   {item.icon}
                   <a href={item.navLink}>{item.title}</a>
+                  {/* <p><Link to={item.navLink}>{item.title}</Link></p> */}
                 </div>
                 {expandedMenu === item.id &&
                   item.children &&
@@ -62,7 +63,7 @@ const DashSide = () => {
                     >
                       {child.icon}
                       {/* <a href={child.navLink}>{child.title}</a> */}
-                      <a href="#">{child.title}</a>
+                      <a>{child.title}</a>
                     </div>
                   ))}
               </Fragment>

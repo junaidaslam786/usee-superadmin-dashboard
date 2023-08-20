@@ -118,3 +118,18 @@
     cursor: pointer;
     background-color: rgb(230, 230, 230);
 }
+
+@media screen and (max-width: 720px) {
+    .Welcome {
+        margin-top: 5vh;
+    }
+
+    .inputs input {
+        margin-top: -7vh;
+        width: 40vw;
+    }
+
+    .button {
+        width: 40vw;
+    }
+}

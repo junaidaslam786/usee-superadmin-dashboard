@@ -28,37 +28,49 @@ function AccountDetails() {
     useProfileUpdateMutation();
   const [uploadImage, { data, error }] = useUploadImageMutation();
 
+ 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const formData = {
-      firstName,
-      lastName,
-      phoneNumber,
-      city,
-    };
+    const updatedFields = {};
+    if (firstName) updatedFields.firstName = firstName;
+    if (lastName) updatedFields.lastName = lastName;
+    if (phoneNumber) updatedFields.phoneNumber = phoneNumber;
+    if (city) updatedFields.city = city;
+
     try {
       const user = JSON.parse(localStorage.getItem("userData"));
-      await updateProfile({ id: user.id, userData: formData });
-      dispatch(updateUserProfile({ ...formData, id: user.id }));
-
-      if (selectedImageFile) {
-        try {
-          await uploadImage({ id: user.id, imageFile: selectedImageFile });
-          // if (data && data.user) {
-          //   dispatch(setUser(data.user));
-          // }
-        } catch (error) {
-          console.error("Error uploading image:", error);
-        }
-      }
-
-      dispatch(setUser(formData));
-      // navigate("/dashboard");
-      // Handle success, maybe show a toast or message
+      await updateProfile({ id: user.id, userData: updatedFields });
+      dispatch(setUser({ ...userState.user, ...updatedFields }));
     } catch (error) {
       // Handle error, show error message to the user
     }
+  };
+
+  const handleImageUpload = async () => {
+    if (selectedImageFile) {
+      try {
+        const user = JSON.parse(localStorage.getItem("userData"));
+        const uploadResponse = await uploadImage({
+          id: user.id,
+          imageFile: selectedImageFile,
+        });
+        if (uploadResponse.data && uploadResponse.data.user) {
+          dispatch(setUser({ ...userState.user, ...uploadResponse.data.user }));
+        }
+      } catch (error) {
+        console.error("Error uploading image:", error);
+      }
+    }
+  };
+
+  const handleDiscard = () => {
+    setFirstName("");
+    setLastName("");
+    setPhoneNumber("");
+    setCity("");
+    setSelectedImageFile(null);
   };
 
   return (
@@ -76,7 +88,9 @@ function AccountDetails() {
           <img
             src={
               profileImage ||
-              `${process.env.REACT_APP_SERVER_ENDPOINT}/${userState?.user?.profileImage}`
+              `${process.env.REACT_APP_SERVER_ENDPOINT}/${
+                userState?.user?.profileImage
+              }?${Date.now()}`
             }
             alt="profilePicture"
           />
@@ -141,28 +155,14 @@ function AccountDetails() {
             >
               Save Changes
             </button>
-            <button className={styles.discardButton}>Discard</button>
+            <button className={styles.discardButton} onClick={handleDiscard}>
+              Discard
+            </button>
+            <button className={styles.saveButton} onClick={handleImageUpload}>
+              Upload Image
+            </button>
           </div>
         </form>
-        <div className={styles.mainCard}>
-          <div className={styles.card}>
-            <img src={user} />
-            <div className={styles.margin}>
-              <div className={styles.flexTate}>
-                <p className={styles.cardNameHeading}>Name: </p>
-                <p className={styles.cardName}>Abdul Hakeem</p>
-              </div>
-              <div className={styles.flexTate}>
-                <p className={styles.cardNameHeading}>Mobile: </p>
-                <p className={styles.cardName}>1234567890</p>
-              </div>
-              <div className={styles.flexTate}>
-                <p className={styles.cardNameHeading}>City: </p>
-                <p className={styles.cardName}>Chungi No. 07</p>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
       {isSuccess && <p>Profile updated successfully!</p>}
       {isError && <p>There was an error updating the profile.</p>}

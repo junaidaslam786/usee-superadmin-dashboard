@@ -11,7 +11,7 @@
     height: 15vh;
     background-color: white;
     border: 0px solid;
-    border-radius: 10px;
+    border-radius: 2vmin;
     box-shadow: 1px 2px 5px #171B2A;
     display: flex;
     flex-direction: column;
@@ -61,10 +61,12 @@
     width: 13vw;
     border: 1px solid #00C800;
     background-color: #00C800;
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 2vmin 2vmin;
     height: 3vh;
     font-family: 'roboto', sans-serif;
-    color: white;
+    color: white; 
+    display: flex;
+    align-items: center;
 }
 
 .btn p{
@@ -92,13 +94,13 @@
 
 @media screen and (max-width: 720px) {
     .card {
-        width: 40vw;
+        width: 30vw;
         height: 20vh;
         margin: 5vh 10vw;
     }
 
     .btn {
-        width: 40vw;
+        width: 30vw;
     }
 
     .cardButton span {
