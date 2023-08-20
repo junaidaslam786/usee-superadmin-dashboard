@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./AccountDetails.module.css";
 import user from "../../../assets/UserImage.png";
 import {
@@ -28,8 +28,6 @@ function AccountDetails() {
     useProfileUpdateMutation();
   const [uploadImage, { data, error }] = useUploadImageMutation();
 
- 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -56,7 +54,13 @@ function AccountDetails() {
           id: user.id,
           imageFile: selectedImageFile,
         });
+        // console.log("Response from the image upload endpoint:", uploadResponse);
         if (uploadResponse.data && uploadResponse.data.user) {
+          // localStorage.setItem(
+          //   "userData",
+          //   JSON.stringify({ ...userState.user, ...uploadResponse.data.user })
+          // );
+
           dispatch(setUser({ ...userState.user, ...uploadResponse.data.user }));
         }
       } catch (error) {
@@ -72,6 +76,12 @@ function AccountDetails() {
     setCity("");
     setSelectedImageFile(null);
   };
+  useEffect(() => {
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    if (userData) {
+      dispatch(setUser(userData));
+    }
+  }, [dispatch]);
 
   return (
     <div className={styles.accountDetails}>
@@ -89,7 +99,7 @@ function AccountDetails() {
             src={
               profileImage ||
               `${process.env.REACT_APP_SERVER_ENDPOINT}/${
-                userState?.user?.profileImage
+                userState?.user?.imageUrl?.imageUrl
               }?${Date.now()}`
             }
             alt="profilePicture"
@@ -158,14 +168,14 @@ function AccountDetails() {
             <button className={styles.discardButton} onClick={handleDiscard}>
               Discard
             </button>
-            <button className={styles.saveButton} onClick={handleImageUpload}>
-              Upload Image
-            </button>
           </div>
         </form>
+        <button className={styles.saveButton} onClick={handleImageUpload}>
+          Upload Image
+        </button>
       </div>
       {isSuccess && <p>Profile updated successfully!</p>}
-      {isError && <p>There was an error updating the profile.</p>}
+      {/* {isError && <p>There was an error updating the profile.</p>} */}
     </div>
   );
 }

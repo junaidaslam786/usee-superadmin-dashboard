@@ -44,7 +44,9 @@ const Navbar = () => {
             <div className={styles.user}>
               <div className={styles.userImage}>
                 <img
-                  src={`${process.env.REACT_APP_SERVER_ENDPOINT}/${userState?.user?.profileImage}`}
+                  src={`${process.env.REACT_APP_SERVER_ENDPOINT}/${
+                    userState?.user?.imageUrl?.imageUrl
+                  }?${Date.now()}`}
                 />
               </div>
               <div className={styles.userInfo}>
@@ -60,7 +62,6 @@ const Navbar = () => {
             {showDropdown && (
               <div className={styles.dropdownMenu}>
                 <p>Profile</p>
-                <p>Settings</p>
                 <p>Logout</p>
               </div>
             )}

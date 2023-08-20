@@ -71,12 +71,7 @@ const userApi = createApi({
       },
       async onQueryStarted(args, { dispatch, queryFulfilled }) {
         try {
-          
-          let responseData = await queryFulfilled.then((result) => result.data);
-          // localStorage.setItem("userData", JSON.stringify(responseData.user));
           const { data } = await queryFulfilled;
-          // console.log(data);
-          // dispatch(updateProfileImage(image));
           dispatch(setUser(data));
         } catch (error) {}
       },
