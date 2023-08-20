@@ -11,12 +11,12 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   // 1. State Management
-  const [showDropdown, setShowDropdown] = useState(false);
+  // const [showDropdown, setShowDropdown] = useState(false);
 
-  // 2. Event Handlers
-  const toggleDropdown = () => {
-    setShowDropdown(!showDropdown);
-  };
+  // // 2. Event Handlers
+  // const toggleDropdown = () => {
+  //   setShowDropdown(!showDropdown);
+  // };
 
   // Get the current location's path
   const location = useLocation();
@@ -33,39 +33,35 @@ const Navbar = () => {
           <input type="text" placeholder="Search here..." />
         </div>
         <div className={styles.notify}>
-          <div className={styles.user} onClick={toggleDropdown}>
-            {" "}
-            {/* Add onClick handler */}
-            <div>
-              <button className={styles.notification}>
-                <span className="material-symbols-outlined">notifications</span>
-              </button>
-            </div>
-            <div className={styles.user}>
-              <div className={styles.userImage}>
-                <img
-                  src={`${process.env.REACT_APP_SERVER_ENDPOINT}/${
-                    userState?.user?.imageUrl?.imageUrl
-                  }?${Date.now()}`}
-                />
-              </div>
-              <div className={styles.userInfo}>
-                <div className={styles.userName}>
-                  <p>{userState?.user?.firstName || "Guest"}</p>
-                  <span className="material-symbols-outlined">expand_more</span>
-                </div>
-                <p>Admin</p>
-              </div>
-            </div>
-            {/* ... user image and info ... */}
-            {/* 3. Dropdown Menu */}
-            {showDropdown && (
-              <div className={styles.dropdownMenu}>
-                <p>Profile</p>
-                <p>Logout</p>
-              </div>
-            )}
+          {/* <div className={styles.user} onClick={toggleDropdown}> */}{" "}
+          {/* Add onClick handler */}
+          <div>
+            <button className={styles.notification}>
+              <span className="material-symbols-outlined">notifications</span>
+            </button>
           </div>
+          <div className={styles.user}>
+            <div className={styles.userImage}>
+              <img
+                src={
+                  `${process.env.REACT_APP_SERVER_ENDPOINT}/${
+                    userState?.user?.imageUrl?.imageUrl
+                      ? userState?.user?.imageUrl?.imageUrl
+                      : userState?.user?.profileImage
+                  }?${Date.now()}`}
+              />
+            </div>
+            <div className={styles.userInfo}>
+              <div className={styles.userName}>
+                <p>{userState?.user?.firstName || "Guest"}</p>
+                <span className="material-symbols-outlined">expand_more</span>
+              </div>
+              <p>Admin</p>
+            </div>
+          </div>
+         
+          
+          {/* </div> */}
         </div>
       </div>
       {/*<div className={styles.home}>

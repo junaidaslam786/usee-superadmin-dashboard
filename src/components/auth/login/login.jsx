@@ -64,10 +64,10 @@ const Login = () => {
         </div>
       </form>
       <div className={styles.Remember}>
-        <div className={styles.toggle}>
+        {/* <div className={styles.toggle}>
           <span className="material-symbols-outlined">toggle_off</span>
           <p>Remember me</p>
-        </div>
+        </div> */}
         <div className={styles.forgot}>
           <a href="#">Forgot Password?</a>
         </div>

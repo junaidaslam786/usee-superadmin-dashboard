@@ -1,21 +1,65 @@
+
 .main {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 2rem;
 }
 
 .mainImage {
-    height: 100vh;
     width: 50vw;
+    height: 100vh;
+    object-fit: contain;
+    border-radius: 16px;
 }
 
-@media screen and (max-width: 720px) {
+/* Extra large screens (large desktops) */
+@media screen and (min-width: 1201px) {
+    .mainImage {
+        width: 45vw;
+        height: 90vh;
+    }
+}
+
+/* Large screens (desktops, large tablets) */
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+    .mainImage {
+        width: 40vw;
+        height: 80vh;
+    }
+}
+
+/* Medium screens (tablets) */
+@media screen and (min-width: 481px) and (max-width: 768px) {
     .main {
-        display: flex;
+        flex-direction: column;
+    }
+
+    .mainImage {
+        width: 70vw;
+        height: 50vh;
+    }
+}
+
+/* Small screens (mobile phones) */
+@media screen and (max-width: 480px) {
+    .main {
         flex-direction: column;
         align-items: center;
     }
 
     .mainImage {
-        width: 100vw;
+        width: 80vw;
+        height: 40vh;
+    }
+}
+
+/* Very small screens */
+@media screen and (max-width: 360px) {
+    .mainImage {
+        width: 90vw;
+        height: 30vh;
     }
 }

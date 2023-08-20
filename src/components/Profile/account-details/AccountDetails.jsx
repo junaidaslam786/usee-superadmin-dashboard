@@ -56,11 +56,7 @@ function AccountDetails() {
         });
         // console.log("Response from the image upload endpoint:", uploadResponse);
         if (uploadResponse.data && uploadResponse.data.user) {
-          // localStorage.setItem(
-          //   "userData",
-          //   JSON.stringify({ ...userState.user, ...uploadResponse.data.user })
-          // );
-
+         
           dispatch(setUser({ ...userState.user, ...uploadResponse.data.user }));
         }
       } catch (error) {
@@ -100,6 +96,8 @@ function AccountDetails() {
               profileImage ||
               `${process.env.REACT_APP_SERVER_ENDPOINT}/${
                 userState?.user?.imageUrl?.imageUrl
+                  ? userState?.user?.imageUrl?.imageUrl
+                  : userState?.user?.profileImage
               }?${Date.now()}`
             }
             alt="profilePicture"

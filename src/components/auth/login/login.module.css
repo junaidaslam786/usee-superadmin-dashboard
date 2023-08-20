@@ -1,135 +1,130 @@
 
-
 .Login {
-    margin: 10vh 12vh;
+    margin: 2rem;
+    padding: 2rem;
     background-color: #171B2A;
-    width: 50vw;
+    width: 80%;
+    max-width: 600px;
     border: 1px solid #171B2A;
-    border-radius: 2vh;
+    border-radius: 16px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: white;
     font-family: 'roboto', sans-serif;
+    padding: 2rem;
 }
 
 .Welcome {
     font-family: Helvetica;
     letter-spacing: 1px;
-    font-size: 5vh;
+    font-size: 2rem;
     font-weight: 600;
     margin-top: 0;
 }
 
 .loginText {
-    margin-top: -3vh;
+    margin-top: -1rem;
     letter-spacing: 1px;
     color: #00C800;
-    font-size: 4vh;
+    font-size: 1.5rem;
     font-weight: 600;
 }
 
 .inputs {
     position: relative;
+    width: 100%;
+    margin-bottom: 1rem;
 }
 
 .inputs p {
-    font-size: 3vh;
-    margin-top: 2vh;
+    font-size: 1rem;
+    margin-top: 1rem;
 }
 
 .inputs input {
-    width: 26vw;
-    height: 2vh;
-    padding: 1vh 0;
+    width: 100%;
+    padding: 0.5rem;
     color: white;
-    font-size: 2vh;
+    font-size: 1rem;
     background-color: #171B2A;
-    border: 0px solid;
-    border-bottom: 0.3vh solid #00C800;
-}
-
-.inputs span {
-    position: absolute;
-    font-size: 2vh;
-    right: 0;
-    top: 50%;
-    transform: rotateY(-50%);
-}
-
-/* Visibilty on is Hidden by Default */
-
-.von {
-    visibility: hidden;
-    color: #00C800;
-    position: absolute;
-
-}
-
-.check {
-    visibility: hidden;
-    color: #00C800;
+    border: none;
+    border-bottom: 3px solid #00C800;
+    margin-top: 0.5rem;
 }
 
 .Remember {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    margin-top: 3vh;
+    margin-top: 1rem;
 }
 
 .toggle {
     display: flex;
     align-items: center;
-    margin: 0 7vh;
 }
 
 .toggle p {
-    font-size: 2vh;
-}
-
-.toggle span {
-    font-size: 5vh;
-    padding-right: 5px;
+    font-size: 1rem;
+    margin-left: 0.5rem;
 }
 
 .forgot {
-    margin: 0 7vh;
+    margin-left: 1rem;
 }
 
 .forgot a {
     color: white;
-    font-size: 2vh;
+    font-size: 1rem;
+    text-decoration: none;
 }
 
 .button {
-    height: 6vh;
-    width: 26vw;
+    height: 3rem;
+    width: 100%;
     border: 1px solid white;
     border-radius: 10px;
     font-family: Helvetica;
-    font-size: 2.5vh;
+    font-size: 1.25rem;
     color: #00C800;
     font-weight: 600;
-    margin-top: 7vh;
+    margin-top: 1.5rem;
+    background-color: transparent;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .button:hover {
     cursor: pointer;
-    background-color: rgb(230, 230, 230);
+    background-color: #00C800;
+    color: white;
 }
 
-@media screen and (max-width: 720px) {
-    .Welcome {
-        margin-top: 5vh;
+/* Small screens (mobile phones) */
+@media screen and (max-width: 480px) {
+    .Login {
+        width: 90%;
     }
+}
 
-    .inputs input {
-        margin-top: -7vh;
-        width: 40vw;
+/* Medium screens (tablets) */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .Login {
+        width: 85%;
     }
+}
 
-    .button {
-        width: 40vw;
+/* Large screens (desktops, large tablets) */
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+    .Login {
+        width: 80%;
+    }
+}
+
+/* Extra large screens (large desktops) */
+@media screen and (min-width: 1201px) {
+    .Login {
+        width: 70%;
     }
 }
