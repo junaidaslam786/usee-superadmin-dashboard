@@ -56,7 +56,6 @@ function AccountDetails() {
         });
         // console.log("Response from the image upload endpoint:", uploadResponse);
         if (uploadResponse.data && uploadResponse.data.user) {
-         
           dispatch(setUser({ ...userState.user, ...uploadResponse.data.user }));
         }
       } catch (error) {
@@ -85,8 +84,8 @@ function AccountDetails() {
         <div className={styles.userFilesHeading}>
           <h3>Let's start with basic information</h3>
           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam,
-            reprehenderit!
+            Add your basic profile information to get started and enjoy hassle
+            free experience
           </p>
         </div>
 
@@ -166,11 +165,11 @@ function AccountDetails() {
             <button className={styles.discardButton} onClick={handleDiscard}>
               Discard
             </button>
+            <button className={styles.uploadButton} onClick={handleImageUpload}>
+              Upload Image
+            </button>
           </div>
         </form>
-        <button className={styles.saveButton} onClick={handleImageUpload}>
-          Upload Image
-        </button>
       </div>
       {isSuccess && <p>Profile updated successfully!</p>}
       {/* {isError && <p>There was an error updating the profile.</p>} */}

@@ -43,8 +43,7 @@ const ChangePassword = () => {
       <div className={styles.userPassHeading}>
         <h3>Change Password</h3>
         <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore,
-          unde.
+          Create a strong password to safeguard your personal and sensitive information
         </p>
       </div>
       <form onSubmit={handlePasswordChange}>
@@ -63,7 +62,7 @@ const ChangePassword = () => {
         <div className={styles.userPassInputs}>
           <div className={styles.userPassAbout}>
             <h4>Current password</h4>
-            <p>(Lorem ipsum dolor sit amet.)</p>
+            <p>(Leave blank to leave unchanged)</p>
           </div>
           <input
             type="password"
@@ -75,7 +74,7 @@ const ChangePassword = () => {
         <div className={styles.userPassInputs}>
           <div className={styles.userPassAbout}>
             <h4>New password</h4>
-            <p>(Lorem ipsum dolor sit amet.)</p>
+            <p>(Leave blank to leave unchanged)</p>
           </div>
           <input
             type="password"

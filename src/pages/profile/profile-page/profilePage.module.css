@@ -2,7 +2,7 @@
     width: 80vw;
     display: flex;
     flex-direction: row;
-    margin-top: 4vh;
+    padding-top: 4vh;
     background-color: #FAFBFC;
 }
 
@@ -13,84 +13,100 @@
     flex-direction: column;
     justify-content: space-around;
     width: 15vw;
-    height: 30.5vh;
-    border: 1px solid black;
-    border-radius: 1vmin;
-    box-shadow: 1px 1px 4px black;
+    height: 32vmin;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 }
 
 .profileLinks div {
     font-family: 'roboto', sans-serif;
-    font-size: 2vh;
+    font-size: 2.5vmin;
     color: #737791;
     padding-left: 2vw;
-    height: 6vh;
-    border-bottom: 1px solid black;
+    height: 8vmin;
+    border: 0.1vmin solid rgb(0, 0, 0, 0.5);
+    border-top: 0px solid;
     display: flex;
     align-items: center;
 }
 
 .profileLinks div:hover {
-    border-left: 3px solid #00C800;
+    border-left: 1vmin solid #00C800;
     color: #00C800;
     cursor: pointer;
-}
-
-.AD {
-    border-radius: 1vmin 0 0 0;
-}
-
-.EC {
-    border-radius: 0 0 1vmin 1vmin;
 }
 
 .UserRegistration {
     display: flex;
     flex-direction: column;
-    width: 57vw;
+    width: 55vw;
     margin: 0 3vw;
     background-color: #FAFBFC;
 }
 
 /* Media Query */
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 768px) {
     .ProfileInfo{
         display: flex;
         flex-direction: column;
-        margin-top: 0;
+        width: 100%;
+        padding-top: 0;
     }
 
     .profileLinks {
         display: flex;
         flex-direction: row;
-        width: 100vw;
+        width: 100%;
         margin-left: 0;
-        height: 6vh;
         border-radius: 0;
         box-shadow: none;
         border: none;
+        height: 8vmin;
     }
 
     .profileLinks div:hover {
         border-left: none;
-        border-bottom: 3px solid #00C800;
+        border-bottom: 1vmin solid #00C800;
     }
 
     .profileLinks div {
         font-size: 1vw;
         justify-content: center;
         padding-left: 0;
+        height: 8vmin;
+        border: 0px solid;
+        border-bottom: 0.3vmin solid rgb(0, 0, 0, 0.5);
+        border-radius: 0 0 1vmin 1vmin;
+        font-size: 2.5vmin;
+        width: 25vw;
     }
 
     .UserRegistration {
-        width: 100vw;
-        margin-top: 4vh;
-        margin-left: 0;
-        border: none;
+        width: 85vw;
+        margin: 2vmin 2vw;
     }
+}
 
-    .profileLinks div {
-        border-radius: 0 0 1vmin 1vmin;
-    }
+@media screen and (min-width: 320px) and (max-width: 375px) {
+   
+}
+
+@media screen and (min-width: 376px) and (max-width: 425px) {
+    
+}
+
+@media screen and (min-width: 426px) and (max-width: 768px) {
+    
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+
+}
+
+@media screen and (min-width: 1441px) {
+    
 }

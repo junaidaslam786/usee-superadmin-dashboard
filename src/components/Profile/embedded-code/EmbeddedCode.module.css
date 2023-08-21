@@ -3,11 +3,10 @@
     flex-direction: column;
     margin-top: 4vh;
     background-color: white;
-    border: 1px solid;
-    box-shadow: 1px 1px 6px black;
-    border-radius: 1vmin;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
     padding: 3vh;
     margin-bottom: 15vh;
+    width: 100%;
 }
 
 .userEmbeddedCodeHeading {
@@ -18,23 +17,23 @@
 .userEmbeddedCodeHeading h3 {
     letter-spacing: 1px;
     margin-top: 0;
-    font-size: 3vh;
+    font-size: 3vmin;
 }
 
 .userEmbeddedCodeHeading p {
     color: #737791;
-    font-size: 1.5vh;
+    font-size: 1.5vmin;
     margin-top: -2vh;
 }
 
 .userEmbeddedCodeButton {
-    width: 12vw;
-    height: 6vh;
+    width: 20vmin;
+    height: 6vmin;
     color: #00C800;
-    border: 0.3vh solid #00C800;
+    border: 0.3vmin solid #00C800;
     margin-top: 3vh;
     background-color: #FAFBFC;
-    border-radius: 1vmin;
+    border-radius: 0.3vmin;
     font-size: 2vmin;
 }
 
@@ -42,4 +41,36 @@
     background-color: #00C800;
     color: white;
     cursor: pointer;
+}
+
+@media screen and (max-width: 375px) {
+   .userEmbeddedCodeHeading p {
+        margin-top: 0.1vmin;
+   }
+}
+
+@media screen and (min-width: 376px) and (max-width: 425px) {
+    
+}
+
+@media screen and (min-width: 426px) and (max-width: 768px) {
+    
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .userEmbeddedCodeButton {
+        border: 0.2vmin solid #00C800;
+    }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+    .userEmbeddedCodeButton {
+        border: 0.2vmin solid #00C800;
+    }
+}
+
+@media screen and (min-width: 1441px) {
+    .userEmbeddedCodeButton {
+        border: 0.2vmin solid #00C800;
+    }
 }

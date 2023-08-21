@@ -1,18 +1,5 @@
-.burger {
-  background: #fafbfc;
-  border: 0.5vh solid #00C800;
-  font-size: 4vh;
-  color: #00C800;
-  cursor: pointer;
-  margin: 2vh 2vw;
-  display: none;
-}
-
-.burgerMenu {
-    width: 20vw;
-}
-
 .menu {
+    width: 20vw;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -29,9 +16,9 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    font-size: 2vh;
+    font-size: 1vw;
     font-weight: bold;
-    padding: 1vh 2vw;
+    padding: 1.2vmin 4vmin;
     border-radius: 1vmin;
     margin: 0vh 5%;
     cursor: pointer;
@@ -40,8 +27,8 @@
 }
 
 .submenu {
-    font-size: 1vh;
-    padding: 1vh 4vw; /* Increased left padding for indentation */
+    font-size: 0.6vw;
+    padding: 1vmin 8vmin; /* Increased left padding for indentation */
   }
 
 .submenu a {
@@ -51,16 +38,15 @@
 
 .pages a {
     font-family: 'roboto', sans-serif;
-    font-size: 2vh;
+    font-size: 1.2vw;
     font-weight: 600;
     text-decoration: none;
     color: #737791;
 }
 
 .pages:hover {
-    box-shadow: 1px 2px 5px black;
+    box-shadow: 0px 0px 5px rgb(0, 0, 0, 0.5);
     background-color: #00C800;
-    border: 1px solid #00C800;
     color: white;
     cursor: pointer;
     fill: white;
@@ -84,14 +70,18 @@
 
 .signout {
     background-color: #171B2A;
-    width: 16vw;
-    height: 5vh;
+    width: 32vmin;
+    height: 5vmin;
     color: white;
     font-family: 'roboto', sans-serif;
     border: 1px solid #171B2A;
     border-radius: 1vmin;
     margin: 0 1vw;
     font-size: 2vmin;
+}
+
+.signout:hover {
+    cursor: pointer;
 }
 
 .sign {
@@ -110,12 +100,8 @@
     transform: rotateY(-50%);
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 768px) {
     .menu {
         display: none;
-    }
-    .burger {
-        display: block;
-        position: sticky;
-    }
+    }    
 }

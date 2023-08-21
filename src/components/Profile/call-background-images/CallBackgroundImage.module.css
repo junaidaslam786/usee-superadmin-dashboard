@@ -3,9 +3,7 @@
     flex-direction: column;
     margin-top: 4vh;
     background-color: white;
-    border: 1px solid;
-    box-shadow: 1px 1px 6px black;
-    border-radius: 1vmin;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
     padding: 3vh;
 }
 
@@ -46,4 +44,28 @@
 .userBackgroundImageFiles p a {
     font-size: 2vh;
     color: #00C800;
+}
+
+@media screen and (min-width: 320px) and (max-width: 375px) {
+   
+}
+
+@media screen and (min-width: 376px) and (max-width: 425px) {
+    
+}
+
+@media screen and (min-width: 426px) and (max-width: 768px) {
+    
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+
+}
+
+@media screen and (min-width: 1441px) {
+    
 }

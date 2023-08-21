@@ -21,9 +21,6 @@ const ProfilePage = () => {
           <div>
             <p>Change Password</p>
           </div>
-          <div>
-            <p>Call Background Images</p>
-          </div>
           <div className={styles.EC}>
             <p>Embedded code</p>
           </div>
@@ -32,7 +29,6 @@ const ProfilePage = () => {
           <AccountDetails />
           <TimeZone />
           <ChangePassword />
-          <CallBackgroundImage />
           <EmbeddedCode />
         </div>
       </div>

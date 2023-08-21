@@ -7,7 +7,7 @@ import styles from "./dashboardpage.module.css";
 const DashboardPage = () => {
   return (
     <div className={styles.DashboardPage}>
-      <DashSide />
+      {/* <DashSide /> */}
       <div>
         <NavBar />
         <DashMainPage />

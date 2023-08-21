@@ -1,127 +1,146 @@
+.toggleSide {
+  display: flex;
+  flex-direction: row;
+}
+
+.burger {
+  background: #fafbfc;
+  border: 0.2vh solid #00c800;
+  font-size: 4vmin;
+  color: #00c800;
+  cursor: pointer;
+  margin: 2vmin 1vw;
+  display: none;
+}
+
+.SideBar {
+    display: block;
+}
+
 .header {
-    height: 12vh;
-    width: 80vw;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+  height: 12vmin;
+  width: 80vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .dashlogo {
-    font-family: Helvetica;
-    margin-left: 3vw;
-    color: #171B2A;
-    font-size: 4vh;
-    font-weight: 600;
+  font-family: Helvetica;
+  margin-left: -5vw;
+  color: #171b2a;
+  font-size: 4vmin;
+  font-weight: 600;
 }
 
 .inputfield {
-    position: relative;
-    display: flex;
-    align-items: center;
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .inputfield span {
-    position: absolute;
-    color: #00C800;
-    top: 1vh;
-    left: 1vw;
-    transform: rotateY(-50%);
-    font-size: 3vh;
+  position: absolute;
+  color: #00c800;
+  top: 1vmin;
+  left: 1vw;
+  transform: rotateY(-50%);
+  font-size: 3vmin;
 }
 
 .inputfield input {
-    width: 25vw;
-    height: 5vh;
-    background-color: #FAFBFC;
-    border: 0px solid;
-    border-radius: 1vmin;
-    text-align: center;
-    font-family: 'roboto', sans-serif;
-    font-size: 2vmin;
+  width: 25vw;
+  height: 5vmin;
+  background-color: #fafbfc;
+  border: 0px solid;
+  border-radius: 1vmin;
+  text-align: center;
+  font-family: "roboto", sans-serif;
+  font-size: 2vmin;
 }
 
 .notify {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-right: 1vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 1vw;
 }
 
 .notification {
-    padding: 1vh 0.7vw;
-    background-color: #FAFBFC;
-    border: 0px solid;
-    color: #00C800;
-    border-radius: 1vmin;
-    display: flex;
-    align-items: center;
-    margin-right: 3vw;
+  padding: 1vmin 0.7vw;
+  background-color: #fafbfc;
+  border: 0px solid;
+  color: #00c800;
+  border-radius: 1vmin;
+  display: flex;
+  align-items: center;
+  margin-right: 3vw;
 }
 
 .notification span {
-    font-size: 2vmin;
+  font-size: 2vmin;
 }
 
 .user {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .userImage img {
-    width: 3vw;
-    height: 6vh;
-    border-radius: 1vmin;
+  width: 6vmin;
+  height: 6vmin;
+  border-radius: 1vmin;
 }
 
 .userInfo {
-    display: flex;
-    flex-direction: column;
-    margin-left: 1vh;
-    font-family: 'roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  margin-left: 1vmin;
+  font-family: "roboto", sans-serif;
 }
 
 .userName {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-top: 2vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 2vmin;
 }
 
-.userName p{
-    font-size: 2vh;
-    font-weight: 600;
+.userName p {
+  font-size: 2vmin;
+  font-weight: 600;
 }
 
 .userName span {
-    font-size: 1vh;
-    font-weight: bold;
-    margin: -1vh 0 0 1vh;
+  font-size: 1.5vmin;
+  font-weight: bold;
+  margin: -1vmin 0 0 1vh;
 }
 
 .userName span:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-.userInfo p{
-    margin-top: -0.5vh;
-    font-size: 1vh;
+.userInfo p {
+  margin-top: -0.5vmin;
+  font-size: 1vh;
 }
 
 .home {
-    height: 5vh;
-    background-color: #171B2A;
-    width: 80vw;
-    color: white;
-    display: flex;
-    align-items: center;
+  height: 5vmin;
+  background-color: #171b2a;
+  width: 80vw;
+  color: white;
+  display: flex;
+  align-items: center;
 }
 
-.home p{
-    font-family: 'roboto', sans-serif;
-    font-size: 2vh;
-    margin-left: 2vw;
+.home p {
+  font-family: "roboto", sans-serif;
+  font-size: 2vmin;
+  margin-left: 2vw;
 }
 
 .dropdownMenu {
@@ -146,15 +165,65 @@
 }
 
 .linkColor {
-    color: white;
+  color: white;
 }
 
-@media screen and (max-width: 720px) {
-    .header {
-        width: 99.4vw;
-    }
+/* Media Query */
 
-    .home {
-        width: 99.4vw;
-    }
+@media screen and (min-width: 320px) and (max-width: 375px) {
+  .header {
+    width: 100vw;
+  }
+
+  .home {
+    width: 100vw;
+  }
+
+  .burger {
+    display: block;
+    position: sticky;
+  }
+}
+
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  .header {
+    width: 100vw;
+  }
+
+  .home {
+    width: 100vw;
+  }
+
+  .burger {
+    display: block;
+    position: sticky;
+  }
+}
+
+@media screen and (min-width: 426px) and (max-width: 768px) {
+  .header {
+    width: 100vw;
+  }
+
+  .home {
+    width: 100vw;
+  }
+
+  .burger {
+    display: block;
+    position: sticky;
+  }
+
+  .SideBar {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+}
+
+@media screen and (min-width: 1441px) {
 }
