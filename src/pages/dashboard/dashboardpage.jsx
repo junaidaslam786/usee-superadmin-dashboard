@@ -8,10 +8,10 @@ const DashboardPage = () => {
   return (
     <div className={styles.DashboardPage}>
       {/* <DashSide /> */}
-      <div>
+      
         <NavBar />
         <DashMainPage />
-      </div>
+      
     </div>
   );
 };

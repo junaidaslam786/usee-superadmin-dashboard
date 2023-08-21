@@ -6,26 +6,23 @@ import { useAppSelector } from "../../redux/store";
 import DashSide from "../dashboard/dashside/dashside";
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
 
   const userState = useAppSelector((state) => state.userState);
-  // console.log(userState);
-
-  // const navigate = useNavigate();
-
-
+  
+  const menuClass = isMenuOpen ? styles.menuOpen : styles.menuClosed;
 
   // Get the current location's path
   const location = useLocation();
   const pathnames = location.pathname.split("/").filter((x) => x);
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen((prevIsMenuOpen) => !prevIsMenuOpen);
   };
 
   return (
     <div className={styles.toggleSide}>
-      {isMenuOpen && <DashSide />}
+      {isMenuOpen && <DashSide className={menuClass}/>}
       <div>
         <div className={styles.header}>
           <div>

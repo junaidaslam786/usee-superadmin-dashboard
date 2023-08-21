@@ -8,7 +8,6 @@ const Layout = ({ children }) => {
     useInitializeUserFromLocalStorage();
   return (
     <div className={styles.app_container}>
-      <DashSide />
       <div className={styles.content_wrapper}>
         <Navbar />
         <main className={styles.main_content}>{children}</main>

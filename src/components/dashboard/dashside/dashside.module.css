@@ -100,8 +100,8 @@
     transform: rotateY(-50%);
 }
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
     .menu {
         display: none;
     }    
-}
+} */
