@@ -7,8 +7,7 @@ const TimeZone = () => {
       <div className={styles.timeZoneHeading}>
         <h3>Update your timezone</h3>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
-          ducimus?
+        Select & update your timezone for seamless collaboration and timely responses
         </p>
       </div>
       <div className={styles.timeZoneLabel}>

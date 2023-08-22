@@ -7,7 +7,7 @@ const EmbeddedCode = () => {
       <div className={styles.userEmbeddedCodeHeading}>
         <h3>Embedded Code</h3>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. In, delectus!
+        Please click the API button to see the API code and copy the code and insert it in your website.
         </p>
       </div>
       <button className={styles.userEmbeddedCodeButton}>See API</button>
