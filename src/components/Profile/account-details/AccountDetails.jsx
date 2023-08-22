@@ -19,7 +19,7 @@ function AccountDetails() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [city, setCity] = useState("");
+  const [email, setEmail] = useState("");
 
   const [profileImage, setProfileImage] = useState(null);
   const [selectedImageFile, setSelectedImageFile] = useState(null);
@@ -28,39 +28,38 @@ function AccountDetails() {
     useProfileUpdateMutation();
   const [uploadImage, { data, error }] = useUploadImageMutation();
 
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const updatedFields = {};
-    if (firstName) updatedFields.firstName = firstName;
-    if (lastName) updatedFields.lastName = lastName;
-    if (phoneNumber) updatedFields.phoneNumber = phoneNumber;
-    if (city) updatedFields.city = city;
+    const updatedFields = {
+      ...(firstName && { firstName }),
+      ...(lastName && { lastName }),
+      ...(phoneNumber && { phoneNumber }),
+      ...(email && { email }),
+    };
 
     try {
-      const user = JSON.parse(localStorage.getItem("userData"));
-      await updateProfile({ id: user.id, userData: updatedFields });
-      dispatch(setUser({ ...userState.user, ...updatedFields }));
-    } catch (error) {
-      // Handle error, show error message to the user
-    }
-  };
+      await updateProfile({ id: userState.user.id, userData: updatedFields });
 
-  const handleImageUpload = async () => {
-    if (selectedImageFile) {
-      try {
-        const user = JSON.parse(localStorage.getItem("userData"));
+      let updatedUserData = { ...userState.user, ...updatedFields };
+
+      if (selectedImageFile) {
         const uploadResponse = await uploadImage({
-          id: user.id,
+          id: userState.user.id,
           imageFile: selectedImageFile,
         });
-        // console.log("Response from the image upload endpoint:", uploadResponse);
-        if (uploadResponse.data && uploadResponse.data.user) {
-          dispatch(setUser({ ...userState.user, ...uploadResponse.data.user }));
+        if (uploadResponse.data.imageUrl.imageUrl) {
+          updatedUserData.profileImage = uploadResponse.data.imageUrl.imageUrl;
         }
-      } catch (error) {
-        console.error("Error uploading image:", error);
       }
+
+      dispatch(setUser(updatedUserData));
+
+      // Update localStorage with the new user data
+      localStorage.setItem("userData", JSON.stringify(updatedUserData));
+    } catch (error) {
+      console.error("Error updating profile or uploading image:", error);
     }
   };
 
@@ -68,7 +67,7 @@ function AccountDetails() {
     setFirstName("");
     setLastName("");
     setPhoneNumber("");
-    setCity("");
+    setEmail("");
     setSelectedImageFile(null);
   };
   useEffect(() => {
@@ -101,16 +100,6 @@ function AccountDetails() {
             }
             alt="profilePicture"
           />
-          <input
-            type="file"
-            onChange={(e) => {
-              const file = e.target.files[0];
-              if (file) {
-                setProfileImage(URL.createObjectURL(file));
-                setSelectedImageFile(file);
-              }
-            }}
-          />
         </div>
       </div>
       <div className={styles.mainDiv}>
@@ -119,7 +108,7 @@ function AccountDetails() {
             <p>First Name</p>
             <input
               type="text"
-              placeholder="John"
+              placeholder={userState?.user?.firstName}
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
             />
@@ -128,7 +117,7 @@ function AccountDetails() {
             <p>Last Name</p>
             <input
               type="text"
-              placeholder="Doe"
+              placeholder={userState?.user?.lastName}
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
             />
@@ -138,6 +127,7 @@ function AccountDetails() {
               <p>Phone No</p>
               <input
                 type="text"
+                placeholder={userState?.user?.phoneNumber}
                 value={phoneNumber}
                 onChange={(e) => setPhoneNumber(e.target.value)}
               />
@@ -145,11 +135,12 @@ function AccountDetails() {
           </div>
           <div className={styles.userProfile}>
             <div className={styles.userDiv}>
-              <p>City</p>
+              <p>Email</p>
               <input
-                type="text"
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
+                type="email"
+                placeholder={userState?.user?.email}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
           </div>
@@ -165,9 +156,27 @@ function AccountDetails() {
             <button className={styles.discardButton} onClick={handleDiscard}>
               Discard
             </button>
-            <button className={styles.uploadButton} onClick={handleImageUpload}>
-              Upload Image
+            <button
+              className={styles.uploadButton}
+              onClick={() => {
+                const fileInput = document.getElementById("hiddenFileInput");
+                fileInput.click();
+              }}
+            >
+              Choose File
             </button>
+            <input
+              type="file"
+              id="hiddenFileInput"
+              style={{ display: "none" }}
+              onChange={(e) => {
+                const file = e.target.files[0];
+                if (file) {
+                  setProfileImage(URL.createObjectURL(file));
+                  setSelectedImageFile(file);
+                }
+              }}
+            />
           </div>
         </form>
       </div>

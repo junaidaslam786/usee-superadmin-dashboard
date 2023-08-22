@@ -62,12 +62,12 @@ const authApi = createApi({
       },
     }),
     changeSuperAdminPassword: builder.mutation({
-      query({ email, oldPassword, newPassword, confirmNewPassword }) {
+      query({ id, oldPassword, newPassword, confirmNewPassword }) {
         const token = localStorage.getItem("token")
         return {
           url: 'superadmin/auth/change-password',
           method: "PUT",
-          body: { email, oldPassword, newPassword, confirmNewPassword, token },
+          body: { id, oldPassword, newPassword, confirmNewPassword, token },
           credentials: "include",
         };
       },

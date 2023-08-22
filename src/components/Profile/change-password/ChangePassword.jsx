@@ -11,7 +11,7 @@ const ChangePassword = () => {
   const userState = useAppSelector((state) => state.userState);
   const dispatch = useDispatch();
 
-  const [email, setEmail] = useState("");
+  // const [email, setEmail] = useState("");
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmNewPassword, setConfirmNewPassword] = useState("");
@@ -23,7 +23,7 @@ const ChangePassword = () => {
     e.preventDefault();
     try {
       const response = await changePassword({
-        email,
+        id: userState.user.id,
         oldPassword,
         newPassword,
         confirmNewPassword,
@@ -47,18 +47,7 @@ const ChangePassword = () => {
         </p>
       </div>
       <form onSubmit={handlePasswordChange}>
-        <div className={styles.userPassInputs}>
-          <div className={styles.userPassAbout}>
-            <h4>Email Address</h4>
-            <p>(Enter your email address.)</p>
-          </div>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter email address"
-          />
-        </div>
+        
         <div className={styles.userPassInputs}>
           <div className={styles.userPassAbout}>
             <h4>Current password</h4>
