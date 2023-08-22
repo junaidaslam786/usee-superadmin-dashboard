@@ -11,6 +11,11 @@ const DashSide = () => {
   const dispatch = useDispatch();
 
   const [expandedMenu, setExpandedMenu] = useState(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
+
+  const toggleMenu = () => {
+    setIsMenuOpen((prevIsMenuOpen) => !prevIsMenuOpen);
+  };
 
   const handleMenuClick = (menuId) => {
     if (expandedMenu === menuId) {
@@ -20,54 +25,57 @@ const DashSide = () => {
     }
   };
 
-
-
   return (
-    <div className={styles.menu} id="menu" >
-      <div className={styles.image}>
-        <img src={logo} alt="Logo" />
-      </div>
-      <div className={styles.content}>
-        <div className={styles.icons}>
-          {navigationConfig.map((item) => (
-            <Fragment key={item.id}>
-              <div
-                className={styles.pages}
-                onClick={() => handleMenuClick(item.id)}
-              >
-                {item.icon}
-                <a href={item.navLink}>{item.title}</a>
-                {/* <p><Link to={item.navLink}>{item.title}</Link></p> */}
-              </div>
-              {expandedMenu === item.id &&
-                item.children &&
-                item.children.map((child) => (
+    <div className={styles.wrapper}>
+      <button className={styles.burger} onClick={toggleMenu}>☰</button>
+      {isMenuOpen && (
+        <div className={isMenuOpen ? `${styles.menu}` : `${styles.menu} ${styles.collapsed}`} id="menu">
+          <div className={styles.image}>
+            <img src={logo} alt="Logo" />
+          </div>
+          <div className={styles.content}>
+            <div className={styles.icons}>
+              {navigationConfig.map((item) => (
+                <Fragment key={item.id}>
                   <div
-                    className={`${styles.pages} ${styles.submenu}`}
-                    key={child.id}
+                    className={styles.pages}
+                    onClick={() => handleMenuClick(item.id)}
                   >
-                    {child.icon}
-                    {/* <a href={child.navLink}>{child.title}</a> */}
-                    <a>{child.title}</a>
+                    {item.icon}
+                    <a href={item.navLink}>{item.title}</a>
+                    
                   </div>
-                ))}
-            </Fragment>
-          ))}
+                  {expandedMenu === item.id &&
+                    item.children &&
+                    item.children.map((child) => (
+                      <div
+                        className={`${styles.pages} ${styles.submenu}`}
+                        key={child.id}
+                      >
+                        {child.icon}
+                        
+                        <a>{child.title}</a>
+                      </div>
+                    ))}
+                </Fragment>
+              ))}
+            </div>
+            <div className={styles.sign}>
+              <span className="material-symbols-outlined">logout</span>
+              <button
+                type="button"
+                className={styles.signout}
+                onClick={() => {
+                  dispatch(logout());
+                  navigate("/login");
+                }}
+              >
+                Sign Out
+              </button>
+            </div>
+          </div>
         </div>
-        <div className={styles.sign}>
-          <span className="material-symbols-outlined">logout</span>
-          <button
-            type="button"
-            className={styles.signout}
-            onClick={() => {
-              dispatch(logout());
-              navigate("/login");
-            }}
-          >
-            Sign Out
-          </button>
-        </div>
-      </div>
+      )}
     </div>
   );
 };

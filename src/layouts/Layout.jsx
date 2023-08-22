@@ -1,13 +1,14 @@
 import React from "react";
-import styles from './Layout.module.css'
+import styles from "./Layout.module.css";
 import Navbar from "../components/navbar/navbar";
 import DashSide from "../components/dashboard/dashside/dashside";
 import useInitializeUserFromLocalStorage from "../hooks/useInitializeUserFromLocalStorage";
 
 const Layout = ({ children }) => {
-    useInitializeUserFromLocalStorage();
+  useInitializeUserFromLocalStorage();
   return (
     <div className={styles.app_container}>
+      <DashSide className={styles.side} />
       <div className={styles.content_wrapper}>
         <Navbar />
         <main className={styles.main_content}>{children}</main>

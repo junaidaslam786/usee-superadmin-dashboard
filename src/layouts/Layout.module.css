@@ -9,7 +9,7 @@
     /* flex: 1;  */
 }
 
-.side-menu {
+.side {
     width: 20vw; /* or whatever width you prefer for the side menu */
     height: 100%;
     /* Add additional styles for the side menu (e.g., background color) */
@@ -18,12 +18,4 @@
 .main_content {
     flex: 1; /* This will make the main content take up the remaining space beside the side menu */
     overflow-y: auto; 
-}
-
-
-@media screen and (max-width: 768px) {
-    .app_container {
-        display: flex;
-        flex-direction: column;
-    }
 }

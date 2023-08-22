@@ -1,18 +1,17 @@
 import React from "react";
 import DashSide from "../../components/dashboard/dashside/dashside";
 import DashMainPage from "../../components/dashboard/dashmainpage/dashmainpage";
-import NavBar from "../../components/navbar/navbar"
+import NavBar from "../../components/navbar/navbar";
 import styles from "./dashboardpage.module.css";
+import Layout from "../../layouts/Layout";
 
 const DashboardPage = () => {
   return (
-    <div className={styles.DashboardPage}>
-      {/* <DashSide /> */}
-      
-        <NavBar />
+    <Layout>
+      <div className={styles.DashboardPage}>
         <DashMainPage />
-      
-    </div>
+      </div>
+    </Layout>
   );
 };
 

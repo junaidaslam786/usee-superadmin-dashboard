@@ -1,10 +1,31 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
 .menu {
     width: 20vw;
-    height: 100%;
+    height: 100vh;
+    background-color: white;
     display: flex;
     flex-direction: column;
     border-right: 1px solid #171B2A;
+    /* position: fixed; */
+    /* left: 0;
+    top: 0; */
     display: block;
+}
+
+.burger {
+    color: #00C800;
+    border: 0.2vmin solid  #00C800;
+    display: block;
+    width: 5vmin;
+    height: 5vmin;
+    font-size: 2vmin;
+    font-weight: 600;
+    margin: 2.6vmin 1vw;
+    display: none;
 }
 
 .content {
@@ -29,7 +50,10 @@
 .submenu {
     font-size: 0.6vw;
     padding: 1vmin 8vmin; /* Increased left padding for indentation */
-  }
+    display: block;
+    display: flex;
+    align-items: center;
+}
 
 .submenu a {
     margin-left: 0.9vw;
@@ -42,6 +66,7 @@
     font-weight: 600;
     text-decoration: none;
     color: #737791;
+    display: block;
 }
 
 .pages:hover {
@@ -78,6 +103,7 @@
     border-radius: 1vmin;
     margin: 0 1vw;
     font-size: 2vmin;
+    display: block;
 }
 
 .signout:hover {
@@ -100,8 +126,56 @@
     transform: rotateY(-50%);
 }
 
-/* @media screen and (max-width: 768px) {
-    .menu {
+@media screen and (max-width: 768px) {
+    
+    /* .pages {
+        display: block;
+        padding: 1vmin 2vmin;
+        margin: 0.5vmin 0.5vmin;
+    } */
+
+    /* .signout {
         display: none;
-    }    
-} */
+    } */
+
+    .sign span{
+        background-color: #171B2A;
+        font-size: 3vmin;
+        padding: 1vmin 1vmin;
+        left: 1vmin;
+        border-radius: 1vmin;
+    }
+    
+    .menu {
+        z-index: 10;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    /* .menu:not(.collapsed) .menu{
+        width: 20vw;
+    }
+    
+    .menu:not(.collapsed) .pages a {
+        display: block;
+    }
+
+    .menu.collapsed .pages a {
+        display: none;
+    } */
+
+    .burger {
+        display: block;
+        z-index: 100;
+        position: absolute;
+        top: 1vh;
+        left: 1vw;
+    }
+
+    .image img {
+        width: 2vmin;
+        height: 2vmin;
+        margin: 3vh 0;
+    }
+}
