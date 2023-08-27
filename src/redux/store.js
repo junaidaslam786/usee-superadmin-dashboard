@@ -1,26 +1,44 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
+import { combineReducers } from "redux";
+
 import { authApi } from "./api/authApi";
 import { userApi } from "./api/userApi";
+import { userManagementApi } from "./api/userManagementApi";
 import userReducer from "./features/userSlice";
-import { combineReducers } from "redux";
 
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
 
+import { toast } from "react-toastify";
+import { CustomErrorMessage } from "../utils/CustomErrorMessage"; 
+
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["userState"], // only userState will be persisted
+  whitelist: ["userState", userManagementApi.reducerPath], // only userState will be persisted
 };
 
 const rootReducer = combineReducers({
   [authApi.reducerPath]: authApi.reducer,
   [userApi.reducerPath]: userApi.reducer,
+  [userManagementApi.reducerPath]: userManagementApi.reducer,
   userState: userReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+// Toast notifications middleware
+const toastNotificationsMiddleware = storeAPI => next => action => {
+  if (action.type.endsWith('/fulfilled')) {
+      toast.success("Operation successful!");
+  }
+  if (action.type.endsWith('/rejected')) {
+      const errorMessage = CustomErrorMessage(action.error);  // Using the utility
+      toast.error(errorMessage);
+  }
+  return next(action);
+};
 
 const store = configureStore({
   reducer: persistedReducer,
@@ -31,7 +49,7 @@ const store = configureStore({
         ignoredActions: ["persist/PERSIST"],
         ignoredPaths: ["register"],
       },
-    }).concat([authApi.middleware, userApi.middleware]),
+    }).concat([authApi.middleware, userApi.middleware, userManagementApi.middleware, toastNotificationsMiddleware]),
 });
 
 let persistor = persistStore(store);

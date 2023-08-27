@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import styles from "./AccountDetails.module.css";
-import user from "../../../assets/UserImage.png";
 import {
   useProfileUpdateMutation,
   useUploadImageMutation,
 } from "../../../redux/api/userApi";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { updateUserProfile, setUser } from "../../../redux/features/userSlice";
+import { setUser } from "../../../redux/features/userSlice";
 import { useAppSelector } from "../../../redux/store";
+
+import { toast } from "react-toastify";
+import { CustomErrorMessage } from "../../../utils/CustomErrorMessage";
 
 function AccountDetails() {
   const userState = useAppSelector((state) => state.userState);
@@ -28,7 +30,6 @@ function AccountDetails() {
     useProfileUpdateMutation();
   const [uploadImage, { data, error }] = useUploadImageMutation();
 
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -76,6 +77,18 @@ function AccountDetails() {
       dispatch(setUser(userData));
     }
   }, [dispatch]);
+
+  useEffect(() => {
+    if (isSuccess) {
+      toast.success("Profile updated successfully!");
+      navigate("/dashboard");
+    }
+    if (isError) {
+      toast.error("There was an error updating the profile.");
+      const errorMessage = CustomErrorMessage(error); // Extract error message using the utility
+      toast.error(errorMessage);
+    }
+  }, [isSuccess, isError]);
 
   return (
     <div className={styles.accountDetails}>
@@ -180,7 +193,7 @@ function AccountDetails() {
           </div>
         </form>
       </div>
-      {isSuccess && <p>Profile updated successfully!</p>}
+      {/* {isSuccess && <p>Profile updated successfully!</p>} */}
       {/* {isError && <p>There was an error updating the profile.</p>} */}
     </div>
   );

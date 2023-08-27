@@ -1,0 +1,39 @@
+
+.tableContainer {
+  width: 100%;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.header {
+  background-color: #f2f2f2;
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.evenRow {
+  background-color: #f2f2f2;
+}
+
+.cell {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.controls select {
+  margin: 0 5px;
+}
+
+.controls button {
+  margin: 0 5px;
+}

@@ -233,7 +233,8 @@ const navigationConfig = [
         title: "Users Listing",
         type: "item",
         icon: <Icon.Circle size={12} />,
-        navLink: "/user/listing-admin"
+        // navLink: "/user/listing-admin"
+        navLink: "/all-users"
       }
     ]
   },

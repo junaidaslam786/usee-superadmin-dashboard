@@ -1,14 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./ChangePassword.module.css";
-import { useChangeSuperAdminPasswordMutation } from "../../../redux/api/authApi"; 
+import { useChangeSuperAdminPasswordMutation } from "../../../redux/api/authApi";
 
 import { useAppSelector } from "../../../redux/store";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { setUser } from "../../../redux/features/userSlice";
 
-const ChangePassword = () => {
+import { toast } from "react-toastify";
+import { CustomErrorMessage } from "../../../utils/CustomErrorMessage";
 
+const ChangePassword = () => {
   const userState = useAppSelector((state) => state.userState);
+
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   // const [email, setEmail] = useState("");
@@ -28,7 +33,7 @@ const ChangePassword = () => {
         newPassword,
         confirmNewPassword,
       });
-  
+
       if (response.data && response.data.user) {
         dispatch(setUser(response.data.user));
       }
@@ -38,16 +43,28 @@ const ChangePassword = () => {
     }
   };
 
+  useEffect(() => {
+    if (isSuccess) {
+      toast.success("Password updated successfully!");
+      navigate("/dashboard");
+    }
+    if (isError) {
+      toast.error("There was an error updating the password.");
+      const errorMessage = CustomErrorMessage(error); // Extract error message using the utility
+      toast.error(errorMessage);
+    }
+  }, [isSuccess, isError]);
+
   return (
     <div className={styles.userPass}>
       <div className={styles.userPassHeading}>
         <h3>Change Password</h3>
         <p>
-          Create a strong password to safeguard your personal and sensitive information
+          Create a strong password to safeguard your personal and sensitive
+          information
         </p>
       </div>
       <form onSubmit={handlePasswordChange}>
-        
         <div className={styles.userPassInputs}>
           <div className={styles.userPassAbout}>
             <h4>Current password</h4>
@@ -87,8 +104,8 @@ const ChangePassword = () => {
           Update Password
         </button>
       </form>
-      {isSuccess && <p>Password updated successfully!</p>}
-      {isError && <p>There was an error updating the password.</p>}
+      {/* {isSuccess && <p>Password updated successfully!</p>}
+      {isError && <p>There was an error updating the password.</p>} */}
     </div>
   );
 };
