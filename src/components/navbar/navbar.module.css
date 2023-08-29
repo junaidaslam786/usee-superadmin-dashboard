@@ -1,30 +1,5 @@
-.toggleSide {
-  display: flex;
-  flex-direction: column;
-}
 
-.burger {
-  background: #fafbfc;
-  border: 0.2vh solid #00c800;
-  font-size: 4vmin;
-  color: #00c800;
-  cursor: pointer;
-  margin: 2vmin 1vw;
-  display: none;
-}
-/* 
-.SideBar {
-    display: block;
-} */
-
-.header {
-  height: 12vmin;
-  width: 78vw;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
+/* Custom styles that aren't directly provided by Bootstrap */
 
 .dashlogo {
   font-family: Helvetica;
@@ -34,12 +9,6 @@
   margin-left: 4vmin;
 }
 
-.inputfield {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
 .inputfield span {
   position: absolute;
   color: #00c800;
@@ -47,24 +16,6 @@
   left: 1vw;
   transform: rotateY(-50%);
   font-size: 3vmin;
-}
-
-.inputfield input {
-  width: 25vw;
-  height: 5vmin;
-  background-color: #fafbfc;
-  border: 0px solid;
-  border-radius: 1vmin;
-  text-align: center;
-  font-family: "roboto", sans-serif;
-  font-size: 2vmin;
-}
-
-.notify {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-right: 1vw;
 }
 
 .notification {
@@ -82,15 +33,7 @@
   font-size: 2vmin;
 }
 
-.user {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
 .userImage img {
-  width: 6vmin;
-  height: 6vmin;
   border-radius: 1vmin;
 }
 
@@ -117,9 +60,6 @@
   font-size: 1.5vmin;
   font-weight: bold;
   margin: -1vmin 0 0 1vh;
-}
-
-.userName span:hover {
   cursor: pointer;
 }
 
@@ -128,103 +68,30 @@
   font-size: 1vh;
 }
 
-.home {
-  height: 5vmin;
-  background-color: #171b2a;
-  width: 79vw;
-  color: white;
-  display: flex;
-  align-items: center;
-}
-
-.home p {
-  font-family: "roboto", sans-serif;
-  font-size: 2vmin;
-  margin-left: 2vw;
-}
-.menuOpen {
-  display: block;
-}
-
-.menuClosed {
-  display: none;
-}
-
-
-.dropdownMenu {
-  position: absolute;
-  top: 10vh;
-  right: 0;
-  width: 150px;
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  z-index: 1000; /* Ensure it's above other elements */
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-.dropdownMenu p {
-  padding: 10px;
-  cursor: pointer;
-}
-
-.dropdownMenu p:hover {
-  background-color: #f5f5f5;
-}
-
 .linkColor {
   color: white;
 }
 
-/* Media Query */
-
+/* Adjustments for responsiveness */
 @media screen and (max-width: 375px) {
-  .header {
-    width: 100vw;
-  }
-
-  .home {
-    width: 100vw;
-  }
-
   .dashlogo {
     margin-left: 9vw;
   }
 }
 
 @media screen and (min-width: 375px) and (max-width: 425px) {
-  .header {
-    width: 100vw;
-  }
-
-  .home {
-    width: 100vw;
-  }
-
   .dashlogo {
     margin-left: 9vw;
   }
 }
 
 @media screen and (min-width: 425px) and (max-width: 768px) {
-  .header {
-    width: 100vw;
-  }
-
-  .home {
-    width: 100vw;
-  }
-
   .dashlogo {
     margin-left: 9vw;
   }
 }
 
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-}
-
-@media screen and (min-width: 1025px) and (max-width: 1440px) {
-}
-
-@media screen and (min-width: 1441px) {
-}
+/* For larger screens, retain original styles */
+@media screen and (min-width: 769px) and (max-width: 1024px) {}
+@media screen and (min-width: 1025px) and (max-width: 1440px) {}
+@media screen and (min-width: 1441px) {}

@@ -1,16 +1,17 @@
 import React from "react";
+import { Container } from "react-bootstrap";
 import styles from "./LoginPage.module.css";
-import logo from '../../assets/loginimg.png'
+import logo from '../../assets/loginimg.png';
 import Login from "../../components/auth/login/login";
 
 const LoginPage = () => {
   return (
-    <div className={styles.main}>
+    <Container fluid className={`d-flex justify-content-center align-items-center ${styles.main}`}>
       <div>
-        <img src={logo} alt="mainImage" className={styles.mainImage}/>
+        <img src={logo} alt="mainImage" className={`img-fluid rounded ${styles.mainImage}`} />
       </div>
       <Login className={styles.logIn} />
-    </div>
+    </Container>
   );
 };
 

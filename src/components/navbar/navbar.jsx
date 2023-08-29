@@ -1,63 +1,52 @@
-import React, { useState } from "react";
-import { useLocation, Link } from "react-router-dom";
-import styles from "./navbar.module.css";
 
+import React from "react";
+import { useLocation, Link } from "react-router-dom";
+import { Container, Row, Col, Button, InputGroup, FormControl, Image, Dropdown } from "react-bootstrap";
+import styles from "./navbar.module.css";
 import { useAppSelector } from "../../redux/store";
-import DashSide from "../dashboard/dashside/dashside";
 
 const Navbar = () => {
   const userState = useAppSelector((state) => state.userState);
-
-  // Get the current location's path
   const location = useLocation();
   const pathnames = location.pathname.split("/").filter((x) => x);
 
   return (
-    <div className={styles.toggleSide}>
-      <div className={styles.header}>
-        <div className={styles.dashlogo}>
-          <p>Dashboard</p>
-        </div>
-        <div className={styles.inputfield}>
-          <span className="material-symbols-outlined">search</span>
-          <input type="text" placeholder="Search here..." />
-        </div>
-        <div className={styles.notify}>
-          {/* <div className={styles.user} onClick={toggleDropdown}> */}{" "}
-          {/* Add onClick handler */}
-          <div>
-            <button className={styles.notification}>
-              <span className="material-symbols-outlined">notifications</span>
-            </button>
-          </div>
-          <div className={styles.user}>
-            <div className={styles.userImage}>
-              <img
-                src={`${process.env.REACT_APP_SERVER_ENDPOINT}/${
-                  userState?.user?.imageUrl?.imageUrl
-                    ? userState?.user?.imageUrl?.imageUrl
-                    : userState?.user?.profileImage
-                }?${Date.now()}`}
-              />
-            </div>
-            <div className={styles.userInfo}>
-              <div className={styles.userName}>
-                <p>{userState?.user?.firstName || "Guest"}</p>
-                <span className="material-symbols-outlined">expand_more</span>
-              </div>
-              <p>Admin</p>
-            </div>
-          </div>
-          {/* </div> */}
-        </div>
-      </div>
-      {/*<div className={styles.home}>
-            <p>Home / Dashboard</p>
-            </div>*/}
-      <div className={styles.home}>
-        <p>
+    <Container fluid className={styles.toggleSide}>
+      <Row className="align-items-center justify-content-between">
+        {/* <Col xs="auto" className="d-flex align-items-center">
+          <h4 className={styles.dashlogo}>Dashboard</h4>
+        </Col> */}
+        <Col xs="auto">
+          <InputGroup>
+            <InputGroup.Text><i className="material-symbols-outlined">search</i></InputGroup.Text>
+            <FormControl placeholder="Search here..." />
+          </InputGroup>
+        </Col>
+        <Col xs="auto" className="d-flex align-items-center justify-content-center pt-2">
+          <Button variant="outline-success" className={styles.notification}>
+            <span className="material-symbols-outlined">notifications</span>
+          </Button>
+          <Image
+            src={`${process.env.REACT_APP_SERVER_ENDPOINT}/${userState?.user?.imageUrl?.imageUrl ? userState?.user?.imageUrl?.imageUrl : userState?.user?.profileImage}?${Date.now()}`}
+            roundedCircle
+            width="40"
+            className="mx-2"
+          />
+          <Dropdown>
+            <Dropdown.Toggle as={Button} variant="success" id="dropdown-basic">
+              {userState?.user?.firstName || "Guest"}
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item href="#/action-1">Profile</Dropdown.Item>
+              <Dropdown.Item href="#/action-2">Settings</Dropdown.Item>
+              <Dropdown.Item href="#/action-3">Logout</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </Col>
+      </Row>
+      <Row className="align-items-center bg-dark text-white py-2 mt-3">
+        <Col>
           {pathnames.length === 0 ? (
-            // <Link to="/dashboard" style={{color:'#fff'}}>Home</Link>
             <Link to="/dashboard" className={styles.linkColor}>
               Home
             </Link>
@@ -82,9 +71,9 @@ const Navbar = () => {
               })}
             </>
           )}
-        </p>
-      </div>
-    </div>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

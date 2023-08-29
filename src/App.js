@@ -5,6 +5,10 @@ import DashboardPage from "./pages/dashboard/dashboardpage";
 import ProfilePage from "./pages/profile/profile-page/profilePage";
 import ProtectedRoute from "./middleware/ProtectedRoutes";
 
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

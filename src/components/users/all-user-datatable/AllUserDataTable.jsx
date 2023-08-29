@@ -14,7 +14,17 @@ const AllUserDataTable = () => {
 
   return (
     <div>
-      <CustomTable data={users} />
+      <CustomTable
+        data={users}
+        columnsToDisplay={[
+          "firstName",
+          "lastName",
+          "phoneNumber",
+          "email",
+          "userType",
+          "status",
+        ]}
+      />
     </div>
   );
 };

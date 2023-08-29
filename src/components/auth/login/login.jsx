@@ -4,8 +4,9 @@ import { useForm } from "react-hook-form";
 import { useLoginUserMutation } from "../../../redux/api/authApi";
 import { setUser } from "../../../redux/features/userSlice";
 import { useAppDispatch } from "../../../redux/store";
-
 import { useNavigate } from "react-router-dom";
+
+import { Container, Form, Button } from "react-bootstrap";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -36,43 +37,31 @@ const Login = () => {
     }
   };
   return (
-    <div className={styles.Login}>
-      <p className={styles.Welcome}>Welcome Back</p>
-      <p className={styles.loginText}>Login</p>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className={styles.inputs}>
-          <p>Email</p>
-          <input
-            {...register("email", { required: "Email is required" })}
-            type="text"
-            placeholder="abc@example.com"
-          />
-          {errors.email && <p>{errors.email.message}</p>}
+    <Container className={`d-flex flex-column align-items-center ${styles.Login}`}>
+      <h2 className={styles.Welcome}>Welcome</h2>
+      <h3 className={styles.loginText}>Login</h3>
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <Form.Group className={styles.inputs}>
+          <Form.Label>Email</Form.Label>
+          <Form.Control type="email" {...register("email")} />
+          {errors.email && <p>Error message for email</p>}
+        </Form.Group>
+        <Form.Group className={styles.inputs}>
+          <Form.Label>Password</Form.Label>
+          <Form.Control type="password" {...register("password")} />
+          {errors.password && <p>Error message for password</p>}
+        </Form.Group>
+        <div className={`d-flex justify-content-between ${styles.Remember}`}>
+          <div className={styles.toggle}>
+            <Form.Check type="checkbox" label="Remember Me" />
+          </div>
+          <div className={styles.forgot}>
+            <a href="/forgot-password">Forgot Password?</a>
+          </div>
         </div>
-        <div className={styles.inputs}>
-          <p>Password*</p>
-          <input
-            {...register("password", { required: "Password is required" })}
-            type="password"
-          />
-          {errors.password && <p>{errors.password.message}</p>}
-        </div>
-        <div>
-          <button type="submit" className={styles.button} disabled={isLoading}>
-            Sign In
-          </button>
-        </div>
-      </form>
-      <div className={styles.Remember}>
-        {/* <div className={styles.toggle}>
-          <span className="material-symbols-outlined">toggle_off</span>
-          <p>Remember me</p>
-        </div> */}
-        <div className={styles.forgot}>
-          <a href="#">Forgot Password?</a>
-        </div>
-      </div>
-    </div>
+        <Button type="submit" className={styles.button}>Login</Button>
+      </Form>
+    </Container>
   );
 };
 
